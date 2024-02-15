@@ -10,6 +10,7 @@ import java.util.Random;
 public class CompleteTranslation extends Lesson {
 
     private String translatedText;
+    private String hiddenWord;
 
     public CompleteTranslation() {
         super("Complete translation");
@@ -34,14 +35,17 @@ public class CompleteTranslation extends Lesson {
         // Declare a variable to store a random index
         int indexToRemove;
 
-        for(String word : words) {
-            System.out.print("[" + word + "]" + " ");
-        }
+//        for(String word : words) {
+//            System.out.print("[" + word + "]" + " ");
+//        }
 
         // Repeat until we find a word consisting of only letters
         do {
             indexToRemove = new Random().nextInt(words.length);
         } while (!words[indexToRemove].matches("\\p{Alpha}+"));
+
+        hiddenWord = words[indexToRemove];
+        System.out.println("\nHidden word: " + hiddenWord);
 
         // Create two subarrays from the words array: one before the random index and one after it
         String[] part1 = Arrays.copyOf(words, indexToRemove);
@@ -58,7 +62,7 @@ public class CompleteTranslation extends Lesson {
             // Remove spaces before punctuation marks using a regular expression
             String str = result.get(i).replaceAll("\\s+(?=\\p{Punct})", "");
             result.set(i, str);
-            System.out.print("[" + result.get(i) + "]" + " ");
+      //      System.out.print("[" + result.get(i) + "]" + " ");
         }
 
         return result;

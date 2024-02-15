@@ -15,6 +15,7 @@ public class AFCompleteTranslationPanel extends AFLessonPanel {
 
     @Override
     public boolean checkLesson() {
+        System.out.println("Entered word = ");
         return false;
     }
 }

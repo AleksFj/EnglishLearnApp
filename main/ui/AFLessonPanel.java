@@ -26,7 +26,7 @@ public abstract class AFLessonPanel extends JPanel {
     //example: [spicy] [he] [this] [apple] [food] [beautiful] [Sofia] [is] [pasta]
     private AFCustomButton[] choiceWordsButtons;
     private JLabel resultText; //example: Correct/Incorrect
-    private JTextField emptyTextField;
+    private JTextField hiddenTextField;
 
 
     public AFLessonPanel() {
@@ -151,9 +151,9 @@ public abstract class AFLessonPanel extends JPanel {
 
         for (String part : parts) {
             if (part.contains("*")) {
-                JTextField textField = new JTextField(part.length());
-                textField.setFont(Fonts.COURIERNEW_PLAIN_32);
-                translatedTextPanel.add(textField);
+                hiddenTextField = new JTextField(part.length());
+                hiddenTextField.setFont(Fonts.COURIERNEW_PLAIN_32);
+                translatedTextPanel.add(hiddenTextField);
             } else {
                 JLabel label = new JLabel(part);
                 label.setFont(Fonts.COURIERNEW_PLAIN_32);

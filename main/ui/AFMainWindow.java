@@ -68,7 +68,8 @@ public class AFMainWindow {
                 //the result of a pressed button (OK or CANCEL)
                 if(dialog.showDialog() == AFCustomDialog.ID_OK) {
                     String inputText = dialog.getInputText();
-                    Main.createUser(inputText);
+                    Users.createUser(inputText);
+                    Users.save();
                 }
             }
         });

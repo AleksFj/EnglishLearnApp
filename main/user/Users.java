@@ -1,8 +1,12 @@
 package main.user;
 
+import main.program.Main;
+import main.utils.FileHandler;
+
 import java.util.ArrayList;
 
 public class Users {
+    public static final String USERS_FILE = Main.FILES_DIR + "users.json";
     private static ArrayList<User> users = new ArrayList<>();
     private static User currentUser = null;
 
@@ -44,5 +48,19 @@ public class Users {
             System.out.println(user + "login failed");
             return false;
         }
+    }
+
+    public static void load() {
+        ArrayList<User> users = new FileHandler().readUsers(USERS_FILE);
+        Users.setUsers(users);
+    }
+
+    public static void save() {
+        new FileHandler().saveUsers(Users.getUsers(), USERS_FILE);
+    }
+
+    public static void createUser(String name) {
+        User newUser = new User(name);
+        Users.addUser(newUser);
     }
 }
