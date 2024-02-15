@@ -91,24 +91,9 @@ public class AFMainPanel extends JPanel {
             controlPanel.setVisibleButtons(true, false);
         }
 
+        assert lessonPanel != null;
         add(lessonPanel, BorderLayout.CENTER);
         revalidate();
-
-//        if (current == null) {
-//            mainText.setText("WELL DONE!");
-//            controlPanel.setVisibleButtons(false, false);
-//            return;
-//        }
-//
-//        mainText.setText(current.getText());
-//
-//        if (current instanceof Rules) { //если текущее задание это просто правила
-//            controlPanel.setVisibleButtons(false, true);
-//        } else if (current instanceof ChooseWords) { //если текущее задание, это задание с выбором слов
-//            controlPanel.setVisibleButtons(true, false);
-//        } else if (current instanceof TranslateText) { //если текущее задание, это задание с переводом текста
-//            controlPanel.setVisibleButtons(true, false);
-//        }
     }
 
     public Module getTaskSubject() {

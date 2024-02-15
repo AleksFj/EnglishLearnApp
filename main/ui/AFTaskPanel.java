@@ -8,10 +8,10 @@ import java.awt.event.ActionEvent;
 
 public class AFTaskPanel extends JPanel {
 
-    private int panelWidth;
+    private final int panelWidth;
     private final JPanel buttonPanel;
 
-    private AFMainPanel mainPanel;
+    private final AFMainPanel mainPanel;
 
     public AFTaskPanel(AFMainPanel mainPanel) {
         this.mainPanel = mainPanel;
@@ -37,6 +37,9 @@ public class AFTaskPanel extends JPanel {
         button.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                // do nothing if the topic of the task is the same as the one the user is trying to open,
+                // which would avoid idle screen refresh
+                if(mainPanel.getTaskSubject().equals(subject)) return;
                 mainPanel.setTaskSubject(subject);
             }
         });

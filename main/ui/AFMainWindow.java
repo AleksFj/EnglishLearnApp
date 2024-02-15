@@ -52,12 +52,12 @@ public class AFMainWindow {
                 dialog.okButton.addActionListener(new AbstractAction() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        //текст который пользователь ввёл в окне регистрации
-                        String inputText = dialog.textField.getText();
+                        //text entered by the user in the registration window
+                        String inputText = dialog.getInputText();
 
-                        if (inputText.isEmpty()) { //текст пустой
+                        if (inputText.isEmpty()) { //empty text
                             dialog.showMessage("Field is empty.");
-                        } else if (Users.contains(inputText)) { //пользователь с таким именем уже существует
+                        } else if (Users.contains(inputText)) { //user with this name already exists
                             dialog.showMessage(String.format("A user named %s already exists", inputText));
                         } else {
                             dialog.dispose();
@@ -65,9 +65,11 @@ public class AFMainWindow {
                     }
                 });
 
-                String result = dialog.showDialog();
-                System.out.println(result);
-                Main.createUser(result);
+                //the result of a pressed button (OK or CANCEL)
+                if(dialog.showDialog() == AFCustomDialog.ID_OK) {
+                    String inputText = dialog.getInputText();
+                    Main.createUser(inputText);
+                }
             }
         });
 
@@ -80,7 +82,7 @@ public class AFMainWindow {
                     @Override
                     public void actionPerformed(ActionEvent e) {
                         //текст которыйввёл пользователь
-                        String inputText = dialog.textField.getText();
+                        String inputText = dialog.getInputText();
                         if (inputText.isEmpty()) { //текст пустой
                             dialog.showMessage("Field is empty.");
                         } else if (!Users.contains(inputText)) { //пользователь не найден
@@ -91,11 +93,15 @@ public class AFMainWindow {
                     }
                 });
 
-                String result = dialog.showDialog();
-                User user = Users.getUser(result);
-                if (Users.login(user)) {
-                    headerPanel.setText(user.getName());
+                //the result of a pressed button (OK or CANCEL)
+                if(dialog.showDialog() == AFCustomDialog.ID_OK) {
+                    String inputText = dialog.getInputText();
+                    User user = Users.getUser(inputText);
+                    if (Users.login(user)) {
+                        headerPanel.setText(user.getName());
+                    }
                 }
+//
             }
         });
 

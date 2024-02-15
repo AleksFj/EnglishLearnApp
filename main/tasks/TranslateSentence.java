@@ -8,15 +8,16 @@ public class TranslateSentence extends ChooseWords {
         super("Translate sentence");
     }
 
-    @Override
-    public boolean isCorrect() {
-        return false;
-    }
-
     public TranslateSentence(String text, String[] correctWords, String[] otherWords) {
         this();
         this.text = text;
         this.correctWords = correctWords;
         this.otherWords = otherWords;
     }
+
+    @Override
+    public boolean isCorrect() {
+        return false;
+    }
+
 }

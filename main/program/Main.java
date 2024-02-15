@@ -6,6 +6,8 @@ import main.user.Users;
 import main.utils.FileHandler;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Random;
 
 public class Main {
 
@@ -16,10 +18,15 @@ public class Main {
 
     public static void main(String[] args) {
 
+
+    //    System.out.println(getTextWithMissingWord("Sofia, is this food spicy?"));
+
         loadUsers();
         loadTaskSubjects();
         new UserInterface();
     }
+
+
 
     public static void exit() {
         System.exit(0);

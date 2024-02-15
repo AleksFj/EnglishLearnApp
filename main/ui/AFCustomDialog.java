@@ -8,12 +8,17 @@ import java.awt.event.ActionEvent;
 
 //модальное диалоговое окно
 public class AFCustomDialog extends JDialog {
-    public final AFCustomTextField textField;   //текстовое поле для пользовательского ввода
+    public static final int ID_CANCEL = 0;
+    public static final int ID_OK = 1;
+
+    private AFCustomTextField textField;   //текстовое поле для пользовательского ввода
     private JTextArea messageLabel; //сообщение которое показывается в диалогово окне
     private String result;  //результат возвращается при нажатии на кнопку "ОК"
 
     public final AFCustomButton okButton;   //кнопка "ОК"
     public final AFCustomButton cancelButton;   //кнопка "Отмена"
+    private int buttonResult = -1;
+    private String inputText;
 
     public AFCustomDialog(JFrame parent, String text) {
         super(parent, text, true);
@@ -28,6 +33,9 @@ public class AFCustomDialog extends JDialog {
 
         //создание текстового поля для пользовательского ввода
         textField = new AFCustomTextField(15);
+
+        JLabel label = new JLabel("Name:");
+        label.setLabelFor(textField);
 
         //создание и установки для текста сообщения
         messageLabel = new JTextArea();
@@ -45,14 +53,25 @@ public class AFCustomDialog extends JDialog {
         cancelButton.addActionListener(new AbstractAction() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                buttonResult = ID_CANCEL;
+                inputText = textField.getText();
                 dispose();
+            }
+        });
+
+        okButton.addActionListener(new AbstractAction() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                buttonResult = ID_OK;
+                inputText = textField.getText();
             }
         });
 
         //панель для текстового поля пользовательского ввода, располагается сверху
         JPanel textFieldPanel = new JPanel();
         textFieldPanel.setLayout(new FlowLayout());
-        textFieldPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10)); // Отступы сверху и снизу, слева и справа нулевые
+        textFieldPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        textFieldPanel.add(label);
         textFieldPanel.add(textField, BorderLayout.NORTH);
 
         //панель для текста сообщения
@@ -77,8 +96,12 @@ public class AFCustomDialog extends JDialog {
         messageLabel.setVisible(true);
     }
 
-    public String showDialog() {
+    public int showDialog() {
         setVisible(true);
+        return buttonResult;
+    }
+
+    public String getInputText() {
         return textField.getText();
     }
 

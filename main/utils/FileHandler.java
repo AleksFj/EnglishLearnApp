@@ -5,10 +5,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
@@ -16,6 +13,15 @@ public class FileHandler {
 
     public ArrayList<User> readUsers(String filePath) {
         ArrayList<User> users = new ArrayList<>();
+
+        File file = new File(filePath);
+        if(!file.exists()) {
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        }
 
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
             // Преобразуем JSON из файла в список пользователей

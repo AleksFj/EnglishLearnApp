@@ -7,9 +7,10 @@ public class AFCompleteTranslationPanel extends AFLessonPanel {
     private final CompleteTranslation lesson;
 
     public AFCompleteTranslationPanel(CompleteTranslation lesson) {
-        title.setText("Complete translation");
         this.lesson = lesson;
-        setText(lesson.getText());
+        getTaskName(lesson.getTitleText());
+        getTranslationText(lesson.getText());
+        getTextWithEmptyField(lesson.getTextWithMissingWord());
     }
 
     @Override

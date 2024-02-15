@@ -7,9 +7,9 @@ public class AFTranslateTextPanel extends AFLessonPanel {
     private final TranslateText lesson;
 
     public AFTranslateTextPanel(TranslateText lesson) {
-        title.setText("Translate text");
         this.lesson = lesson;
-        setText(lesson.getText());
+//        title.setText("Translate text");
+//        setText(lesson.getText());
     }
 
     @Override

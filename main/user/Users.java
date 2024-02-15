@@ -24,12 +24,14 @@ public class Users {
     }
 
     public static User getUser(String userName) {
+        if(users == null) users = new ArrayList<>();
         return users.stream().filter(user -> user.getName().equals(userName))
                 .findFirst()
                 .orElse(null);
     }
 
     public static boolean contains(String userName) {
+        if(users == null) users = new ArrayList<>();
         return users.stream().anyMatch(user -> user.getName().equals(userName));
     }
 

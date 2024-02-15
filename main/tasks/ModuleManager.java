@@ -13,7 +13,9 @@ public class ModuleManager {
                         "София, эта еда острая?",
                         new String[]{"Sofia", "is", "this", "food", "spicy"},
                         new String[]{"beautiful", "pasta", "he", "apple"}))
-                .add(new CompleteTranslation())
+                .add(new CompleteTranslation(
+                        "София, эта еда острая?",
+                        "Sofia, is this food spicy?"))
                 .add(new TranslateText());
 
 

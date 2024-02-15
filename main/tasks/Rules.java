@@ -4,7 +4,7 @@ package main.tasks;
 public class Rules extends Task {
 
     private static final String htmlStart = "<html>" +
-            "<body style='margin:50px 50px 0px 50px;font-size:18px;font-family:Arial'>";
+            "<body style='margin:50px 50px 0px 50px;font-family:Arial'>";
     private static final String htmlEnd = "</body>\n" +
             "   </html>";
 

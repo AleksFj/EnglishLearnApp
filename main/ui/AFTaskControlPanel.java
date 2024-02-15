@@ -22,7 +22,10 @@ public class AFTaskControlPanel extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
 
-                boolean isCorrect = mainPanel.getLessonPanel().checkLesson();
+                //boolean isCorrect = mainPanel.getLessonPanel().checkLesson();
+                if(mainPanel.getLessonPanel().checkLesson()) {
+                    setVisibleButtons(false, true);
+                }
 //                if (mainPanel.getTaskSubject().currentTask().isCorrect()) {
 //                    setVisibleButtons(false, true);
 //                }
