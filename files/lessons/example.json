@@ -4,7 +4,7 @@
   "taskList": [
     {
       "type": "Rules",
-      "text": "<html><body><p style='color:blue'>This text can use html tags</p></body></html>",
+      "text": "<html><body>You can create your own lessons by creating a json file in the lessons folder.<p style='color:blue'>This text can use html tags</p></body></html>",
       "isDone": false
     },
     {
