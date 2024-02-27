@@ -1,14 +1,15 @@
 package main.ui;
 
+import main.program.events.ILoggedInListener;
 import main.program.Main;
-import main.tasks.ModuleContainer;
-import main.tasks.Module;
-import main.user.User;
-import main.user.Users;
+import main.program.tasks.ModuleContainer;
+import main.program.tasks.Module;
+import main.program.user.User;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.util.ArrayList;
 
 public class AFMainWindow {
 
@@ -22,18 +23,43 @@ public class AFMainWindow {
     }
 
     private void createComponents() {
+
+        User.addLoggedInListener(new ILoggedInListener() {
+            @Override
+            public void onLoggedIn(User user) {
+                headerPanel.setText(user.getName());
+                tasksPanel.clear();
+                user.getModules().forEach(tasksPanel::addModuleButton);
+
+                ArrayList<Module> modules = user.getModules();
+                if(!modules.isEmpty()) {
+                    mainPanel.setCurrentModule(modules.getFirst());
+                }
+            }
+        });
+
         mainFrame = new JFrame("Learn english");
         headerPanel = new AFHeaderPanel();
         mainPanel = new AFMainPanel();
-        tasksPanel = new AFTaskPanel(mainPanel);
+        tasksPanel = new AFTaskPanel(this);
 
         initializeHeader();
         initializeTasks();
 
-        mainPanel.setTaskSubject(ModuleContainer.getModules().getFirst());
+        //mainPanel.setCurrentModule(ModuleContainer.getModules().getFirst());
+        //mainPanel.nextExercise(ModuleContainer.getModules().getFirst());
 
-        mainFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        mainFrame.setUndecorated(true);
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        int screenWidth = (int) screenSize.getWidth() / 2;
+        int screenHeight = (int) screenSize.getHeight() / 2;
+
+        // Устанавливаем размеры и положение фрейма
+        mainFrame.setSize(800, 600);
+        mainFrame.setMinimumSize(new Dimension(800, 600));
+        mainFrame.setLocation(screenWidth / 2, screenHeight / 2);
+
+        //mainFrame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+        //mainFrame.setUndecorated(true);
 
         mainFrame.add(headerPanel, BorderLayout.NORTH);
         mainFrame.add(tasksPanel, BorderLayout.WEST);
@@ -41,6 +67,14 @@ public class AFMainWindow {
 
         mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainFrame.setVisible(true);
+    }
+
+    public Dimension getSize() {
+        return mainFrame.getSize();
+    }
+
+    public AFMainPanel getMainPanel() {
+        return mainPanel;
     }
 
     private void initializeHeader() {
@@ -57,7 +91,7 @@ public class AFMainWindow {
 
                         if (inputText.isEmpty()) { //empty text
                             dialog.showMessage("Field is empty.");
-                        } else if (Users.contains(inputText)) { //user with this name already exists
+                        } else if (User.alreadyExists(inputText)) { //user with this name already exists
                             dialog.showMessage(String.format("A user named %s already exists", inputText));
                         } else {
                             dialog.dispose();
@@ -68,8 +102,8 @@ public class AFMainWindow {
                 //the result of a pressed button (OK or CANCEL)
                 if(dialog.showDialog() == AFCustomDialog.ID_OK) {
                     String inputText = dialog.getInputText();
-                    Users.createUser(inputText);
-                    Users.save();
+                    User.registerNewUser(inputText);
+                //    Users.createUser(inputText);
                 }
             }
         });
@@ -82,11 +116,11 @@ public class AFMainWindow {
                 dialog.okButton.addActionListener(new AbstractAction() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        //текст которыйввёл пользователь
+                        //текст который ввёл пользователь
                         String inputText = dialog.getInputText();
                         if (inputText.isEmpty()) { //текст пустой
                             dialog.showMessage("Field is empty.");
-                        } else if (!Users.contains(inputText)) { //пользователь не найден
+                        } else if (!User.alreadyExists(inputText)) { //пользователь не найден
                             dialog.showMessage(String.format("The user named %s was not found", inputText));
                         } else {
                             dialog.dispose();
@@ -97,10 +131,7 @@ public class AFMainWindow {
                 //the result of a pressed button (OK or CANCEL)
                 if(dialog.showDialog() == AFCustomDialog.ID_OK) {
                     String inputText = dialog.getInputText();
-                    User user = Users.getUser(inputText);
-                    if (Users.login(user)) {
-                        headerPanel.setText(user.getName());
-                    }
+                    User.loadUser(inputText).signIn();
                 }
 //
             }
@@ -116,8 +147,9 @@ public class AFMainWindow {
     }
 
     private void initializeTasks() {
-        for (Module subject : ModuleContainer.getModules()) {
-            tasksPanel.addTaskSubjectButton(subject);
+        for (Module module : ModuleContainer.getModules()) {
+            //System.out.println(module.getTitle());
+            tasksPanel.addModuleButton(module);
         }
     }
 }

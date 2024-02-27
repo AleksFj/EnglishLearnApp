@@ -1,12 +1,17 @@
-package main.tasks;
+package main.program.tasks;
 
 //правила
 public class Rules extends Task {
 
     private static final String htmlStart = "<html>" +
-            "<body style='margin:50px 50px 0px 50px;font-family:Arial'>";
+            "<body style='margin:10px 10px 10px 10px;font-family:Arial'>";
+    //margin: top right bottom left
     private static final String htmlEnd = "</body>\n" +
             "   </html>";
+
+    public Rules() {
+
+    }
 
     public Rules(String text) {
         this.text = text;
@@ -150,5 +155,12 @@ public class Rules extends Task {
     @Override
     public boolean isCorrect() {
         return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Rules {\n" +
+                "\ttext=" + text + "\n" +
+                '}';
     }
 }

@@ -1,6 +1,6 @@
 package main.ui;
 
-import main.utils.Fonts;
+import main.program.utils.Fonts;
 
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EmptyBorder;
@@ -19,8 +19,6 @@ public class AFCustomButton extends javax.swing.JButton {
     public AFCustomButton(String text) {
         super(text);
 
-        //System.out.println(getInsets());
-
         setFont(Fonts.COURIERNEW_PLAIN_16);
         setFocusPainted(false);
         setUI(new BasicButtonUI());
@@ -30,7 +28,6 @@ public class AFCustomButton extends javax.swing.JButton {
 
         setBorder(new CompoundBorder(customBorder, emptyBorder));
         setBackground(color);
-        //System.out.println(getText() + " " + getPreferredSize());
 
         addMouseListener(new MouseAdapter() {
             @Override

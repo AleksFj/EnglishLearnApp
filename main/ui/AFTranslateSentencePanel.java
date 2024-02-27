@@ -1,14 +1,8 @@
 package main.ui;
 
-import main.tasks.TranslateSentence;
+import main.program.tasks.TranslateSentence;
 
-import javax.swing.*;
-import javax.swing.border.LineBorder;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 
 public class AFTranslateSentencePanel extends AFLessonPanel {
 
@@ -17,9 +11,12 @@ public class AFTranslateSentencePanel extends AFLessonPanel {
     public AFTranslateSentencePanel(TranslateSentence lesson) {
         this.lesson = lesson;
         getTaskName(lesson.getTitleText());
-        getTranslationText(lesson.getText());
+        getOriginalText(lesson.getOriginalText());
         getChoiceWords(lesson.getAllWords());
         getResultText();
+
+        System.out.println(lesson);
+        //System.out.println("TranslateSentence: " + Arrays.asList(lesson.getCorrectWords()));
     }
 
     @Override
@@ -41,20 +38,11 @@ public class AFTranslateSentencePanel extends AFLessonPanel {
 
         String[] correct = lesson.getCorrectWords();
         String[] entered = getEnteredWords();
-
         boolean result = Arrays.equals(correct, entered);
+        getResultText().setResult(result);
 
-        if(result) {
-            getResultText().setText("Correct");
-            getResultText().setForeground(Color.green);
-            getResultText().setBorder(BorderFactory.createLineBorder(Color.green, 2));
-        } else {
-            getResultText().setText("Incorrect");
-            getResultText().setForeground(Color.red);
-            getResultText().setBorder(BorderFactory.createLineBorder(Color.red, 2));
-        }
+        //System.out.println(Arrays.asList(correct) + " => " + Arrays.asList(entered) + " = " + result);
 
-        System.out.println(Arrays.asList(correct) + " : " + Arrays.asList(entered) + " => " + result);
         return result;
     }
 

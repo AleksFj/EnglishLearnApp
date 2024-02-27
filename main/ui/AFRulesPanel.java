@@ -1,9 +1,6 @@
 package main.ui;
 
-import main.tasks.Rules;
-import main.utils.Fonts;
-
-import javax.swing.*;
+import main.program.tasks.Rules;
 
 public class AFRulesPanel extends AFLessonPanel {
     private final Rules rules;

@@ -1,44 +1,48 @@
 package main.ui;
 
-import main.tasks.Module;
-import main.utils.Fonts;
+import main.program.events.IChangeListener;
+import main.program.tasks.Module;
+import main.program.utils.Fonts;
+import main.program.utils.MathUtils;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.Random;
 
 public class AFTaskButton extends AFCustomButton {
 
     private final JPanel textPanel;
-    private final Module taskSubject;
+    private final Module module;
+    private final JProgressBar progressBar;
 
-    public AFTaskButton(Module taskSubject) {
-        super(taskSubject.getTitle());
+    public AFTaskButton(Module module) {
+        super(module.getTitle());
 
-        this.taskSubject = taskSubject;
+        this.module = module;
+
+        module.addChangeListener(new IChangeListener() {
+            @Override
+            public void onChange() {
+                updateProgressBar();
+            }
+        });
 
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
-        JLabel headerLabel = new JLabel("<html> " + taskSubject.getTitle() + "</html>");
-        //JLabel additionalLabel = new JLabel(additional);
-        JProgressBar progressBar = new JProgressBar();
+        JLabel headerLabel = new JLabel("<html> " + module.getTitle() + "</html>");
 
         headerLabel.setFont(Fonts.COURIERNEW_PLAIN_24);
-        //additionalLabel.setFont(Fonts.COURIERNEW_PLAIN_16);
-
-        //  additionalLabel.setForeground(Color.GRAY);
 
         textPanel = new JPanel(new GridLayout(1, 1));
         textPanel.setBackground(color);
         textPanel.add(headerLabel);
-        //    textPanel.add(additionalLabel);
 
+        progressBar = new JProgressBar();
         progressBar.setBackground(Color.white);
         progressBar.setFont(Fonts.COURIERNEW_BOLD_12);
-        progressBar.setValue(new Random().nextInt(100));
         progressBar.setStringPainted(true);
+        updateProgressBar();
 
         add(textPanel, BorderLayout.CENTER);
         add(progressBar, BorderLayout.SOUTH);
@@ -56,7 +60,15 @@ public class AFTaskButton extends AFCustomButton {
         });
     }
 
-    public Module getTaskSubject() {
-        return taskSubject;
+    private void updateProgressBar() {
+        int current = module.current();
+        int total = module.total();
+        int percentage = (int)MathUtils.calculatePercentage(module.current(), module.total());
+        progressBar.setString(String.format("%d%% (%d/%d)", percentage, current, total));
+        progressBar.setValue(percentage);
+    }
+
+    public Module getModule() {
+        return module;
     }
 }

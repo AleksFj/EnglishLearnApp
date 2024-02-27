@@ -1,15 +1,15 @@
 package main.ui;
 
-import main.tasks.Module;
-import main.tasks.*;
+import main.program.tasks.Module;
+import main.program.tasks.*;
 
 import javax.swing.*;
 import java.awt.*;
 
 public class AFMainPanel extends JPanel {
 
-    private Module taskSubject;
-    private AFTaskControlPanel controlPanel;
+    private Module module;
+    private final AFTaskControlPanel controlPanel;
 
     private AFLessonPanel lessonPanel;
 //    private AFCenteredTextPane mainText;
@@ -17,87 +17,52 @@ public class AFMainPanel extends JPanel {
 
     public AFMainPanel() {
         setLayout(new BorderLayout());
-//        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
-//
-//        mainText = new AFCenteredTextPane();
-//        mainText.setFont(Fonts.COURIERNEW_BOLD_32);
-//        mainText.setText("Choosing the right option:");
-//        mainText.setEditable(false);
-//        mainText.setContentType("text/html");
-//
-//        mainTextScroll = new JScrollPane(mainText);
-//        add(mainTextScroll);
-//
-//        AFCenteredTextPane label2 = new AFCenteredTextPane();
-//        label2.setFont(Fonts.COURIERNEW_BOLD_32);
-//        label2.setText("The cat is sleeping on ____ bed.");
-//        label2.setEditable(false);
-//        add(label2);
-
-        //    JPanel elements = new JPanel(new FlowLayout(FlowLayout.CENTER, new Random().nextInt(10, 60), 10));
-
-        /*
-        ---------------- НАЧАЛО: СОЗДАНИЕ КНОПОК ВЫБОРА СЛОВ -----------------
-        *-*-*-*-*-*-*-*-*-* ТОЛЬКО ДЛЯ ТЕСТА *-*-*-*-*-*-*-*-*-*
-         */
-//
-//        int rowCount = 0;
-//        for (int i = 0; i < 10; i++) {
-//            rowCount++;
-//            AFCustomButton button = new AFCustomButton("Button " + (i + 1));
-//            elements.add(button);
-//            if (new Random().nextFloat() > 0.5f) {
-//                elements.add(Box.createHorizontalGlue());
-//            }
-//
-//            if ((new Random().nextFloat() > 0.5f && rowCount >= 3) || rowCount >= 4) {
-//                add(elements);
-//                elements = new JPanel(new FlowLayout(FlowLayout.CENTER, new Random().nextInt(10, 60), 10));
-//                rowCount = 0;
-//            }
-//        }
-        /*
-        ---------------- КОНЕЦ: СОЗДАНИЕ КНОПОК ВЫБОРА СЛОВ -----------------
-        *-*-*-*-*-*-*-*-*-* ТОЛЬКО ДЛЯ ТЕСТА *-*-*-*-*-*-*-*-*-*
-         */
-
-        //    add(elements);
-
-
         controlPanel = new AFTaskControlPanel(this);
         add(controlPanel, BorderLayout.SOUTH);
     }
 
-    public void setTaskSubject(Module taskSubject) {
-        this.taskSubject = taskSubject;
+    public void setCurrentModule(Module module) {
+        this.module = module;
+        showLesson(module.currentTask());
+        //System.out.println(module.current() + " - " + module.currentTask());
+    }
 
-        Task current = taskSubject.currentTask();
+    public void nextExercise() {
+        module.next();
+        Task current = module.currentTask();
+        showLesson(current);
+    }
 
+    private void showLesson(Task lesson) {
         if (lessonPanel != null) {
             remove(lessonPanel);
         }
 
-        if (current instanceof Rules) {
-            lessonPanel = new AFRulesPanel((Rules) current);
+        if (lesson instanceof Rules) {
+            lessonPanel = new AFRulesPanel((Rules) lesson);
             controlPanel.setVisibleButtons(false, true);
-        } else if (current instanceof CompleteTranslation) {
-            lessonPanel = new AFCompleteTranslationPanel((CompleteTranslation) current);
+        } else if (lesson instanceof CompleteTranslation) {
+            lessonPanel = new AFCompleteTranslationPanel((CompleteTranslation) lesson);
             controlPanel.setVisibleButtons(true, false);
-        } else if (current instanceof TranslateSentence) {
-            lessonPanel = new AFTranslateSentencePanel((TranslateSentence) current);
+        } else if (lesson instanceof TranslateSentence) {
+            lessonPanel = new AFTranslateSentencePanel((TranslateSentence) lesson);
             controlPanel.setVisibleButtons(true, false);
-        } else if (current instanceof TranslateText) {
-            lessonPanel = new AFTranslateTextPanel((TranslateText) current);
+        } else if (lesson instanceof TranslateText) {
+            lessonPanel = new AFTranslateTextPanel((TranslateText) lesson);
             controlPanel.setVisibleButtons(true, false);
+        } else {
+            lessonPanel = new AFModuleResultPanel(module);
+            controlPanel.setVisibleButtons(false, false);
         }
 
         assert lessonPanel != null;
         add(lessonPanel, BorderLayout.CENTER);
         revalidate();
+        repaint();
     }
 
-    public Module getTaskSubject() {
-        return taskSubject;
+    public Module getModule() {
+        return module;
     }
 
     public AFLessonPanel getLessonPanel() {

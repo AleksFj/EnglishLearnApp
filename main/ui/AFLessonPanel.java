@@ -1,43 +1,43 @@
 package main.ui;
 
-import main.utils.Fonts;
+import main.program.utils.Fonts;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
-import java.util.Arrays;
-import javax.swing.border.EmptyBorder;
+import javax.swing.border.LineBorder;
+import javax.swing.text.*;
 
 public abstract class AFLessonPanel extends JPanel {
 
-    private JPanel taskNamePanel;
-    private JPanel translationTextPanel;
-    private JPanel translatedTextPanel;
-    private JPanel enteredWordsPanel;
-    private JPanel choiceWordsPanel;
-    private JPanel resultTextPanel;
-
+    private JPanel titleNamePanel;      // Panel for displaying the title or name; example: Complete Translation
+    private JPanel translatedTextPanel; // Panel for displaying translated text; example: Sofia, is this food spicy?
+    private JPanel originalTextPanel;   // Panel for displaying original text; example: София, эта еда острая?
+    private JPanel enteredWordsPanel;   // Panel for displaying entered words
+    private JPanel choiceWordsPanel;    // Panel for displaying selected words //example: [spicy] [he] [this] [apple]
+                                        // [food] [beautiful] [Sofia] [is] [pasta]
     private JTextPane ruleText;
-    private JLabel taskName; //example: Complete Translation
-    private JLabel translationText; //example: Sofia, is this food spicy?
-    private JLabel translatedText; //example: София, эта еда острая?
-
-    //example: [spicy] [he] [this] [apple] [food] [beautiful] [Sofia] [is] [pasta]
+    private JLabel taskName;
+    private JTextPane translatedText;
+    private JTextPane originalText;
     private AFCustomButton[] choiceWordsButtons;
-    private JLabel resultText; //example: Correct/Incorrect
+    private AFResultMessagePrinter resultText;
     private JTextField hiddenTextField;
 
 
     public AFLessonPanel() {
-        setLayout(new GridLayout(0, 1));
+        //setLayout(new GridLayout(0, 1));
+        setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
     }
 
     protected JTextPane getRuleText() {
         if (ruleText == null) {
             ruleText = new JTextPane();
             ruleText.setContentType("text/html");
-            add(ruleText);
+            ruleText.setEditable(false);
+            JScrollPane scrollPane = new JScrollPane(ruleText);
+            add(scrollPane);
         }
         return ruleText;
     }
@@ -47,22 +47,59 @@ public abstract class AFLessonPanel extends JPanel {
             taskName = new JLabel(text);
             taskName.setFont(Fonts.COURIERNEW_BOLD_32);
 
-            if (taskNamePanel == null) {
-                taskNamePanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
-                taskNamePanel.add(taskName);
-                add(taskNamePanel);
+            if (titleNamePanel == null) {
+                titleNamePanel = new JPanel();
+                titleNamePanel.setLayout(new BoxLayout(titleNamePanel, BoxLayout.X_AXIS));
+                //titleNamePanel.setPreferredSize(new Dimension(Integer.MAX_VALUE, 10));
+                //titleNamePanel.setBorder(new LineBorder(Color.red));
+                titleNamePanel.add(taskName);
+                add(titleNamePanel);
             }
         }
     }
 
-    protected void getTranslationText(String text) {
-        if (translationText == null) {
-            translationText = new JLabel(text);
-            translationText.setFont(Fonts.COURIERNEW_PLAIN_32);
+    protected void getOriginalText(String text) {
+        if (originalText == null) {
+            originalText = new JTextPane();
+            originalText.setText(text);
+            originalText.setFont(Fonts.COURIERNEW_PLAIN_32);
+            originalText.setEditable(false);    //disallows editing
+            originalText.setOpaque(false);  //removes the background
+            originalText.setHighlighter(null);  //disables text selection
+            //The caret is overridden by the paint method so you don't have to draw anything
+            originalText.setCaret(new DefaultCaret(){
+                @Override
+                public void paint(Graphics g) {
 
-            if (translatedTextPanel == null) {
-                translatedTextPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
-                translatedTextPanel.add(translationText);
+                }
+            });
+
+            SimpleAttributeSet center = new SimpleAttributeSet();
+            StyleConstants.setAlignment(center, StyleConstants.ALIGN_CENTER);
+
+            // Получаем StyledDocument и применяем стиль для всего текста
+            StyledDocument doc = originalText.getStyledDocument();
+            doc.setParagraphAttributes(0, doc.getLength(), center, false);
+
+            //add(originalText);
+            if (originalTextPanel == null) {
+                originalTextPanel = new JPanel(new GridLayout());
+                //originalTextPanel.setBorder(new LineBorder(Color.red));
+                originalTextPanel.add(originalText);
+                add(originalTextPanel);
+            }
+        }
+    }
+
+    protected void getTranslationTextArea(String text) {
+        if(translatedText == null) {
+            translatedText = new JTextPane();
+            translatedText.setFont(Fonts.COURIERNEW_PLAIN_32);
+
+            if(translatedTextPanel == null) {
+                translatedTextPanel = new JPanel(new GridLayout());
+                //translatedTextPanel.setBorder(new LineBorder(Color.red));
+                translatedTextPanel.add(translatedText);
                 add(translatedTextPanel);
             }
         }
@@ -77,12 +114,14 @@ public abstract class AFLessonPanel extends JPanel {
             //create a panel for user-entered words, if not already created
             if (enteredWordsPanel == null) {
                 enteredWordsPanel = new JPanel();
+                //enteredWordsPanel.setBorder(new LineBorder(Color.red));
                 add(enteredWordsPanel);
             }
 
             //create a panel for all the words that the user can choose to compose a sentence
             if (choiceWordsPanel == null) {
                 choiceWordsPanel = new JPanel();
+                //choiceWordsPanel.setBorder(new LineBorder(Color.red));
                 add(choiceWordsPanel);
             }
 
@@ -129,25 +168,19 @@ public abstract class AFLessonPanel extends JPanel {
         return buttonTexts;
     }
 
-    protected JLabel getResultText() {
-        if (resultText == null) {
-            resultText = new JLabel();
-            resultText.setFont(Fonts.COURIERNEW_BOLD_32);
-            resultText.setBorder(new EmptyBorder(10, 50, 10, 50));
-
-            if (resultTextPanel == null) {
-                resultTextPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
-                resultTextPanel.add(resultText);
-                add(resultTextPanel);
-            }
+    protected AFResultMessagePrinter getResultText() {
+        if(resultText == null) {
+            resultText = new AFResultMessagePrinter(this);
+            //resultText.getPanel().setBorder(new LineBorder(Color.red));
         }
 
-        return resultText;
+        return (resultText);
     }
 
     //creating text, with a TextField instead of a missing word
     protected void getTextWithEmptyField(ArrayList<String> parts) {
         translatedTextPanel = new JPanel();
+        translatedTextPanel.setBorder(new LineBorder(Color.red));
 
         for (String part : parts) {
             if (part.contains("*")) {
@@ -155,13 +188,25 @@ public abstract class AFLessonPanel extends JPanel {
                 hiddenTextField.setFont(Fonts.COURIERNEW_PLAIN_32);
                 translatedTextPanel.add(hiddenTextField);
             } else {
-                JLabel label = new JLabel(part);
+                JLabel label = new JLabel();
+                label.setText(part);
+                if(part.chars().anyMatch(Character::isLetter)) {
+                    label.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 10));
+                }
                 label.setFont(Fonts.COURIERNEW_PLAIN_32);
                 translatedTextPanel.add(label);
             }
         }
 
         add(translatedTextPanel);
+    }
+
+    protected String getHiddenText() {
+        return hiddenTextField.getText();
+    }
+
+    protected String getTranslatedText() {
+        return translatedText.getText();
     }
 
     public abstract boolean checkLesson();

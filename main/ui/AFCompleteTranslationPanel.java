@@ -1,6 +1,6 @@
 package main.ui;
 
-import main.tasks.CompleteTranslation;
+import main.program.tasks.CompleteTranslation;
 
 public class AFCompleteTranslationPanel extends AFLessonPanel {
 
@@ -9,13 +9,22 @@ public class AFCompleteTranslationPanel extends AFLessonPanel {
     public AFCompleteTranslationPanel(CompleteTranslation lesson) {
         this.lesson = lesson;
         getTaskName(lesson.getTitleText());
-        getTranslationText(lesson.getText());
+        getOriginalText(lesson.getOriginalText());
+        //System.out.println("text with missing words = " + lesson.getTextWithMissingWord());
         getTextWithEmptyField(lesson.getTextWithMissingWord());
+        getResultText();
+
+        System.out.println(lesson);
+        //System.out.println("CompleteTranslation: " + lesson.getHiddenWord());
     }
 
     @Override
     public boolean checkLesson() {
-        System.out.println("Entered word = ");
-        return false;
+        boolean result = lesson.getHiddenWord().equalsIgnoreCase(getHiddenText());
+        getResultText().setResult(result);
+
+        //System.out.println(lesson.getHiddenWord() + " => " + getHiddenText() + " = " + result);
+
+        return result;
     }
 }

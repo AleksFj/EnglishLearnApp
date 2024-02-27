@@ -1,6 +1,6 @@
 package main.ui;
 
-import main.tasks.TranslateText;
+import main.program.tasks.TranslateText;
 
 public class AFTranslateTextPanel extends AFLessonPanel {
 
@@ -8,12 +8,20 @@ public class AFTranslateTextPanel extends AFLessonPanel {
 
     public AFTranslateTextPanel(TranslateText lesson) {
         this.lesson = lesson;
-//        title.setText("Translate text");
-//        setText(lesson.getText());
+        getTaskName(lesson.getTitleText());
+        getOriginalText(lesson.getTranslatedText()); //текст который дан для перевода
+        getTranslationTextArea(lesson.getTranslatedText()); //текст который вводит пользователь
+        getResultText();
+
+        System.out.println(lesson);
+        //System.out.println("TranslateText: " + lesson.getOriginalText());
     }
 
     @Override
     public boolean checkLesson() {
-        return false;
+        boolean result = lesson.getOriginalText().equalsIgnoreCase(getTranslatedText());
+        //System.out.println(lesson.getOriginalText() + " => " + getTranslatedText() + " = " + result);
+        getResultText().setResult(result);
+        return result;
     }
 }

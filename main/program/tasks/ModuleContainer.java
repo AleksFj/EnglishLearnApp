@@ -1,4 +1,4 @@
-package main.tasks;
+package main.program.tasks;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,9 +8,14 @@ public class ModuleContainer {
 
     public static void addModule(Module module) {
         modules.add(module);
+        //System.out.println(module.getTitle() + " added to container");
     }
 
     public static List<Module> getModules() {
         return modules;
+    }
+
+    public static void removeAll() {
+        modules.clear();
     }
 }

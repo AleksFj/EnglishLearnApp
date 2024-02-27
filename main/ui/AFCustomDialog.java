@@ -1,6 +1,6 @@
 package main.ui;
 
-import main.utils.Fonts;
+import main.program.utils.Fonts;
 
 import javax.swing.*;
 import java.awt.*;

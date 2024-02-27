@@ -1,4 +1,4 @@
-package main.tasks;
+package main.program.tasks;
 
 
 import java.util.ArrayList;
@@ -11,7 +11,15 @@ public abstract class ChooseWords extends Lesson {
     protected String[] correctWords;
     protected String[] otherWords;
 
-    protected ChooseWords(String titleText) {
+    public void setCorrectWords(String[] correctWords) {
+        this.correctWords = correctWords;
+    }
+
+    public void setOtherWords(String[] otherWords) {
+        this.otherWords = otherWords;
+    }
+
+    public ChooseWords(String titleText) {
         super(titleText);
     }
 
