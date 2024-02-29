@@ -43,6 +43,7 @@ public class User {
     public static void registerNewUser(String name) {
         User user = new User(name);
         ModuleManager.createDefaultSubjects();
+        ModuleManager.loadFromFiles();
         ModuleContainer.getModules().forEach(user::addModule);
         user.save();
         //new UserFileManager().save(user);

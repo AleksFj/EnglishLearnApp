@@ -14,14 +14,6 @@ public class AFTextPane extends JTextPane {
         setFont(Fonts.COURIERNEW_BOLD_24);
         setEditable(false);    //disallows editing
         setOpaque(false);  //removes the background
-        setHighlighter(null);  //disables text selection
-        //The caret is overridden by the paint method so you don't have to draw anything
-        setCaret(new DefaultCaret(){
-            @Override
-            public void paint(Graphics g) {
-
-            }
-        });
 
         SimpleAttributeSet center = new SimpleAttributeSet();
         StyleConstants.setAlignment(center, StyleConstants.ALIGN_CENTER);
@@ -31,5 +23,16 @@ public class AFTextPane extends JTextPane {
         doc.setParagraphAttributes(0, doc.getLength(), center, false);
 
         setPreferredSize(new Dimension(0, 0));
+    }
+
+    public void hideCaret() {
+        setHighlighter(null);  //disables text selection
+        //The caret is overridden by the paint method so you don't have to draw anything
+        setCaret(new DefaultCaret(){
+            @Override
+            public void paint(Graphics g) {
+
+            }
+        });
     }
 }

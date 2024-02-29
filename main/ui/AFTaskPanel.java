@@ -23,15 +23,15 @@ public class AFTaskPanel extends JPanel {
         //setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
         setLayout(new GridLayout());
         //setLayout(new SpringLayout());
-        setBorder(new LineBorder(Color.green));
+        //setBorder(new LineBorder(Color.green));
 
         buttonPanel = new JPanel();
         buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.Y_AXIS));
         //buttonPanel.setLayout(new SpringLayout());
-        buttonPanel.setBorder(new LineBorder(Color.red));
+        //buttonPanel.setBorder(new LineBorder(Color.red));
 
         scrollPane = new JScrollPane(buttonPanel);
-        scrollPane.setBorder(new LineBorder(Color.blue));
+        //scrollPane.setBorder(new LineBorder(Color.blue));
         setPreferredSize(new Dimension(MAX_WIDTH + 30, mainWindow.getSize().height));
         scrollPane.getVerticalScrollBar().setUnitIncrement(10);
         scrollPane.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);

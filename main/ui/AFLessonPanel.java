@@ -46,12 +46,13 @@ public abstract class AFLessonPanel extends JPanel {
         if (titleName == null) {
             titleName = new AFTextPane();
             titleName.setText(text);
+            titleName.hideCaret();
 
             if (titleNamePanel == null) {
                 titleNamePanel = new JPanel(new GridLayout());
                 //titleNamePanel.setLayout(new BoxLayout(titleNamePanel, BoxLayout.X_AXIS));
                 //titleNamePanel.setPreferredSize(new Dimension(Integer.MAX_VALUE, 10));
-                titleNamePanel.setBorder(new LineBorder(Color.red));
+                //titleNamePanel.setBorder(new LineBorder(Color.red));
                 titleNamePanel.add(titleName);
                 add(titleNamePanel);
             }
@@ -62,10 +63,11 @@ public abstract class AFLessonPanel extends JPanel {
         if (originalText == null) {
             originalText = new AFTextPane();
             originalText.setText(text);
+            originalText.hideCaret();
 
             if (originalTextPanel == null) {
                 originalTextPanel = new JPanel(new GridLayout());
-                originalTextPanel.setBorder(new LineBorder(Color.red));
+                //originalTextPanel.setBorder(new LineBorder(Color.red));
                 originalTextPanel.add(originalText);
                 add(originalTextPanel);
             }
@@ -75,10 +77,12 @@ public abstract class AFLessonPanel extends JPanel {
     protected void getTranslationTextArea(String text) {
         if(translatedText == null) {
             translatedText = new AFTextPane();
+            translatedText.setOpaque(true);
+            translatedText.setEditable(true);
 
             if(translatedTextPanel == null) {
                 translatedTextPanel = new JPanel(new GridLayout());
-                translatedTextPanel.setBorder(new LineBorder(Color.red));
+                //translatedTextPanel.setBorder(new LineBorder(Color.red));
                 translatedTextPanel.add(translatedText);
                 add(translatedTextPanel);
             }
@@ -94,14 +98,14 @@ public abstract class AFLessonPanel extends JPanel {
             //create a panel for user-entered words, if not already created
             if (enteredWordsPanel == null) {
                 enteredWordsPanel = new JPanel();
-                enteredWordsPanel.setBorder(new LineBorder(Color.red));
+                //enteredWordsPanel.setBorder(new LineBorder(Color.red));
                 add(enteredWordsPanel);
             }
 
             //create a panel for all the words that the user can choose to compose a sentence
             if (choiceWordsPanel == null) {
                 choiceWordsPanel = new JPanel();
-                choiceWordsPanel.setBorder(new LineBorder(Color.red));
+                //choiceWordsPanel.setBorder(new LineBorder(Color.red));
                 add(choiceWordsPanel);
             }
 
@@ -151,7 +155,7 @@ public abstract class AFLessonPanel extends JPanel {
     protected AFResultMessagePrinter getResultText() {
         if(resultText == null) {
             resultText = new AFResultMessagePrinter(this);
-            resultText.getPanel().setBorder(new LineBorder(Color.red));
+            //resultText.getPanel().setBorder(new LineBorder(Color.red));
         }
 
         return (resultText);
@@ -161,7 +165,7 @@ public abstract class AFLessonPanel extends JPanel {
     protected void getTextWithEmptyField(CompleteTranslation lesson) {
         String[] parts = lesson.getWords().toArray(new String[0]);
         translatedTextPanel = new JPanel();
-        translatedTextPanel.setBorder(new LineBorder(Color.red));
+        //translatedTextPanel.setBorder(new LineBorder(Color.red));
 
         for (String part : parts) {
             System.out.println(part + ".equals(" + lesson.getHiddenWord() + ") = " +part.equalsIgnoreCase(lesson.getHiddenWord()));
