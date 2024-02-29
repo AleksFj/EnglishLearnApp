@@ -57,7 +57,7 @@ public class Module {
     public Module next() {
         taskList.get(current).setDone(true);
         current++;
-        User.getCurrentUser().save();
+        if(!User.getCurrentUser().isGuest()) User.getCurrentUser().save();
         //System.out.println("Lesson " + current + "/" + total());
         onValueChanged();
         return this;

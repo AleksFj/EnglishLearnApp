@@ -10,13 +10,14 @@
     {
       "type": "TranslateSentence",
       "titleText": "Example of 'Translation sentence'",
-      "originalText": "There should be some text here",
+      "originalText": "Choose the correct words in the correct order",
       "correctWords": [
-        "Здесь",
-        "должен",
-        "быть",
-        "какой-то",
-        "текст"
+        "Выбери",
+        "правильные",
+        "слова",
+        "в",
+        "правильной",
+        "последовательности"
       ],
       "otherWords": [
         "Другие",
@@ -27,23 +28,14 @@
     {
       "type": "CompleteTranslation",
       "titleText": "Example of 'Complete translation'",
-      "originalText": "There should be a text with a missing word here",
-      "translatedText": "Здесь должен быть текст с пропущенным словом",
-      "hiddenWord": "текст",
-      "textWithMissingWord": [
-        "Здесь",
-        "должен",
-        "быть",
-        "*****",
-        "с",
-        "пропущенным",
-        "словом"
-      ],
+      "originalText": "Write the correct word in the empty box.",
+      "translatedText": "Напиши правильное слово в пустое поле.",
+      "hiddenWord": "поле",
       "isDone": false
     },
     {
       "type": "TranslateText",
-      "titleText": "Exaple of 'Translate text'",
+      "titleText": "Example of 'Translate text'",
       "originalText": "This is the text to be translated",
       "translatedText": "Это текст который надо перевести",
       "isDone": false

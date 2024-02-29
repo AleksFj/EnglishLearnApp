@@ -28,7 +28,9 @@ public class AFTaskButton extends AFCustomButton {
             }
         });
 
+        //setLayout(new GridLayout(0, 1));
         setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        //setLayout(new FlowLayout());
 
         JLabel headerLabel = new JLabel("<html> " + module.getTitle() + "</html>");
 

@@ -9,17 +9,7 @@ import java.util.*;
 //перевести предложение написав пропущенное слово в текст
 public class CompleteTranslation extends Lesson {
 
-    private String hiddenWord;
-
-    private ArrayList<String> textWithMissingWord = new ArrayList<>();
-
-    public void setHiddenWord(String hiddenWord) {
-        this.hiddenWord = hiddenWord;
-    }
-
-    public void setTextWithMissingWord(ArrayList<String> textWithMissingWord) {
-        this.textWithMissingWord = textWithMissingWord;
-    }
+    private String hiddenWord = null;
 
     public CompleteTranslation() {
         super("Complete translation");
@@ -67,37 +57,61 @@ public class CompleteTranslation extends Lesson {
         String string = this.translatedText;
         String[] temp = string.split(" ");
         ArrayList<String> words = new ArrayList<>(Arrays.asList(temp));
-        //ArrayUtils.print(words);
 
         StringIndexPair wordIndex = ArrayUtils.randomWordAndIndex(words);
         words.remove(wordIndex.index);
 
-        //       System.out.println(wordIndex);
-
-        //if(!wordIndex.string.chars().allMatch(Character::isLetter)) {
         String[] parts = StringUtils.extractWordsAndSymbols(wordIndex.string);
         hiddenWord = parts[0];
         parts[0] = StringUtils.maskString(parts[0], '*');
-        //           ArrayUtils.print(parts);
-//            System.out.println("Insert/Add");
-//            System.out.println(wordIndex.index + "/" + words.size());
+
         for (int i = 0; i < parts.length; ++i) {
             words.add(wordIndex.index + i, parts[i]);
         }
-        //ArrayUtils.print(words);
-
-        textWithMissingWord = words;
 
     }
 
-    // A function that takes a translatedText string and returns a list of strings separated by a random word from
-    // translatedText that is replaced by asterisks
-    public ArrayList<String> getTextWithMissingWord() {
-        return textWithMissingWord;
+    public ArrayList<String> getWords() {
+        String string = this.translatedText;
+        String[] temp = string.split(" ");
+        ArrayList<String> words = new ArrayList<>(Arrays.asList(temp));
+
+        String extractedWord = "";
+        int extractedIndex = 0;
+
+        for(int i = 0; i < words.size(); ++i) {
+            if(words.get(i).contains(hiddenWord)) {
+                extractedWord = words.get(i);
+                words.remove(i);
+                extractedIndex = i;
+                break;
+            }
+        }
+
+        String[] parts = StringUtils.extractWordsAndSymbols(extractedWord);
+        for (int i = 0; i < parts.length; ++i) {
+            words.add(extractedIndex + i, parts[i]);
+        }
+//        StringIndexPair wordIndex = ArrayUtils.randomWordAndIndex(words);
+//        words.remove(wordIndex.index);
+//
+//        String[] parts = StringUtils.extractWordsAndSymbols(wordIndex.string);
+//        hiddenWord = parts[0];
+//        parts[0] = StringUtils.maskString(parts[0], '*');
+//
+//        for (int i = 0; i < parts.length; ++i) {
+//            words.add(wordIndex.index + i, parts[i]);
+//        }
+
+        return words;
     }
 
     public String getHiddenWord() {
         return hiddenWord;
+    }
+
+    public void setHiddenWord(String hiddenWord) {
+        this.hiddenWord = hiddenWord;
     }
 
     @Override
@@ -109,7 +123,6 @@ public class CompleteTranslation extends Lesson {
     public String toString() {
         return "CompleteTranslation {\n" +
                 "\thiddenWord=" + hiddenWord + "\n" +
-                "\ttextWithMissingWord=" + textWithMissingWord + "\n" +
                 "\ttitleText=" + titleText + "\n" +
                 "\toriginalText=" + originalText + "\n" +
                 "\ttranslatedText=" + translatedText + "\n" +

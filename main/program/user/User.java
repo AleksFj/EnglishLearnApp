@@ -4,7 +4,7 @@ import main.program.events.ILoggedInListener;
 import main.program.tasks.Module;
 import main.program.tasks.ModuleContainer;
 import main.program.tasks.ModuleManager;
-import main.program.utils.FINAL;
+import main.program.utils.Constants;
 import main.program.utils.FileManager;
 
 import java.util.ArrayList;
@@ -15,6 +15,7 @@ public class User {
     private ArrayList<Module> modules = new ArrayList<>();
     private static User currentUser = null;
     private static final transient List<ILoggedInListener> listeners = new ArrayList<>();
+    private boolean isGuest = false;
 
     private User(String name) {
         currentUser = this;
@@ -49,13 +50,14 @@ public class User {
 
     public static User loadUser(String userName) {
         //return new FileManager().loadUser(userName);
-        User user = new FileManager().load(User.class, FINAL.USERS_DIR + userName + ".json");
+        User user = new FileManager().load(User.class, Constants.USERS_DIR + userName + ".json");
         //System.out.println(user);
         return user;
     }
 
     public static User createGuest() {
         User user = new User("Guest");
+        user.isGuest = true;
         //ModuleManager.createDefaultSubjects();
         ModuleContainer.getModules().forEach(user::addModule);
         return user;
@@ -70,7 +72,7 @@ public class User {
     }
 
     public static boolean alreadyExists(String userName) {
-        return  FileManager.exists(FINAL.USERS_DIR + userName + ".json");
+        return  FileManager.exists(Constants.USERS_DIR + userName + ".json");
     }
 
     public void signIn() {
@@ -85,6 +87,10 @@ public class User {
     }
 
     public void save() {
-        new FileManager().save(currentUser, FINAL.USERS_DIR + getName());
+        new FileManager().save(currentUser, Constants.USERS_DIR + getName());
+    }
+
+    public boolean isGuest() {
+        return this.isGuest;
     }
 }

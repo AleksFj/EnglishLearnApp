@@ -1,7 +1,7 @@
 package main.program.tasks;
 
 
-import main.program.utils.FINAL;
+import main.program.utils.Constants;
 import main.program.utils.FileManager;
 import main.program.utils.FileScanner;
 
@@ -179,21 +179,23 @@ public class ModuleManager {
         ModuleContainer.addModule(thereIsAre);
         ModuleContainer.addModule(personalPronouns);
 
-        List<File> moduleFiles = FileScanner.scanFolder(FINAL.LESSONS_DIR, "json");
+        //saveDefaultModules();
+    }
+
+    public static void loadFromFiles() {
+        List<File> moduleFiles = FileScanner.scanFolder(Constants.LESSONS_DIR, "json");
         System.out.printf("%d additional lessons found\n", moduleFiles.size());
 
         moduleFiles.forEach(m -> {
             ModuleContainer.addModule(new FileManager().load(Module.class, m.getPath()));
             System.out.println(m.getPath() + " successfully added");
         });
-
-        //saveDefaultModules();
     }
 
     private static void saveDefaultModules() {
-        new FileManager().save(ModuleContainer.getModules().get(0), FINAL.LESSONS_DIR + "articles");
-        new FileManager().save(ModuleContainer.getModules().get(1), FINAL.LESSONS_DIR + "to_be");
-        new FileManager().save(ModuleContainer.getModules().get(2), FINAL.LESSONS_DIR + "there_is_are");
-        new FileManager().save(ModuleContainer.getModules().get(3), FINAL.LESSONS_DIR + "personal_pronouns");
+        new FileManager().save(ModuleContainer.getModules().get(0), Constants.LESSONS_DIR + "articles");
+        new FileManager().save(ModuleContainer.getModules().get(1), Constants.LESSONS_DIR + "to_be");
+        new FileManager().save(ModuleContainer.getModules().get(2), Constants.LESSONS_DIR + "there_is_are");
+        new FileManager().save(ModuleContainer.getModules().get(3), Constants.LESSONS_DIR + "personal_pronouns");
     }
 }

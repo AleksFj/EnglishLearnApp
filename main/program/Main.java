@@ -5,13 +5,12 @@ import main.program.user.User;
 
 public class Main {
 
-
     public static void main(String[] args) {
 //        Module module = new FileManager().load(Module.class, FINAL.LESSONS_DIR + "articles.json");
 //        ModuleContainer.addModule(module);
 
-        loadTaskSubjects();
-        new UserInterface();
+        loadModules();
+        UserInterface.create();
         User.createGuest().signIn();
     }
 
@@ -19,7 +18,8 @@ public class Main {
         System.exit(0);
     }
 
-    private static void loadTaskSubjects() {
+    private static void loadModules() {
         ModuleManager.createDefaultSubjects();
+        ModuleManager.loadFromFiles();
     }
 }

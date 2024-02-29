@@ -14,7 +14,7 @@ import java.io.*;
 public class FileManager {
 
     public User loadUser(String name) {
-        String fileName = FINAL.USERS_DIR + name + ".json";
+        String fileName = Constants.USERS_DIR + name + ".json";
         //System.out.println(fileName);
         User user = null;
 

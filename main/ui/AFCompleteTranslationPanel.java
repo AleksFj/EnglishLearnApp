@@ -11,7 +11,7 @@ public class AFCompleteTranslationPanel extends AFLessonPanel {
         getTaskName(lesson.getTitleText());
         getOriginalText(lesson.getOriginalText());
         //System.out.println("text with missing words = " + lesson.getTextWithMissingWord());
-        getTextWithEmptyField(lesson.getTextWithMissingWord());
+        getTextWithEmptyField(lesson);
         getResultText();
 
         System.out.println(lesson);
@@ -23,7 +23,7 @@ public class AFCompleteTranslationPanel extends AFLessonPanel {
         boolean result = lesson.getHiddenWord().equalsIgnoreCase(getHiddenText());
         getResultText().setResult(result);
 
-        //System.out.println(lesson.getHiddenWord() + " => " + getHiddenText() + " = " + result);
+        System.out.println(lesson.getHiddenWord() + " => " + getHiddenText() + " = " + result);
 
         return result;
     }

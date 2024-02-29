@@ -111,9 +111,6 @@ public class ModuleTypeAdapter extends TypeAdapter<Module> {
                         hiddenWord = jsonReader.nextString();
                         //                System.out.println("hiddenWord: " + hiddenWord);
                     }
-                    case "textWithMissingWord" -> {
-                        textMissingWord = readWords(jsonReader);
-                    }
                 }
             }
 
@@ -126,7 +123,6 @@ public class ModuleTypeAdapter extends TypeAdapter<Module> {
 
             } else if (task instanceof CompleteTranslation) {
                 ((CompleteTranslation) task).setHiddenWord(hiddenWord);
-                ((CompleteTranslation) task).setTextWithMissingWord(textMissingWord);
                 ((CompleteTranslation) task).setTitleText(titleText);
                 ((CompleteTranslation) task).setOriginalText(originalText);
                 ((CompleteTranslation) task).setTranslatedText(translatedText);

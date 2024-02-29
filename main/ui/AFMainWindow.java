@@ -93,6 +93,8 @@ public class AFMainWindow {
                             dialog.showMessage("Field is empty.");
                         } else if (User.alreadyExists(inputText)) { //user with this name already exists
                             dialog.showMessage(String.format("A user named %s already exists", inputText));
+                        } else if(inputText.equalsIgnoreCase("Guest")){
+                            dialog.showMessage("The name Guest is reserved. Please choose a different name.");
                         } else {
                             dialog.dispose();
                         }

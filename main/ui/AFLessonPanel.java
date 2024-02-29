@@ -1,11 +1,11 @@
 package main.ui;
 
+import main.program.tasks.CompleteTranslation;
 import main.program.utils.Fonts;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.util.ArrayList;
 import javax.swing.border.LineBorder;
 import javax.swing.text.*;
 
@@ -18,9 +18,9 @@ public abstract class AFLessonPanel extends JPanel {
     private JPanel choiceWordsPanel;    // Panel for displaying selected words //example: [spicy] [he] [this] [apple]
                                         // [food] [beautiful] [Sofia] [is] [pasta]
     private JTextPane ruleText;
-    private JLabel taskName;
-    private JTextPane translatedText;
-    private JTextPane originalText;
+    private AFTextPane titleName;
+    private AFTextPane translatedText;
+    private AFTextPane originalText;
     private AFCustomButton[] choiceWordsButtons;
     private AFResultMessagePrinter resultText;
     private JTextField hiddenTextField;
@@ -43,16 +43,16 @@ public abstract class AFLessonPanel extends JPanel {
     }
 
     protected void getTaskName(String text) {
-        if (taskName == null) {
-            taskName = new JLabel(text);
-            taskName.setFont(Fonts.COURIERNEW_BOLD_32);
+        if (titleName == null) {
+            titleName = new AFTextPane();
+            titleName.setText(text);
 
             if (titleNamePanel == null) {
-                titleNamePanel = new JPanel();
-                titleNamePanel.setLayout(new BoxLayout(titleNamePanel, BoxLayout.X_AXIS));
+                titleNamePanel = new JPanel(new GridLayout());
+                //titleNamePanel.setLayout(new BoxLayout(titleNamePanel, BoxLayout.X_AXIS));
                 //titleNamePanel.setPreferredSize(new Dimension(Integer.MAX_VALUE, 10));
-                //titleNamePanel.setBorder(new LineBorder(Color.red));
-                titleNamePanel.add(taskName);
+                titleNamePanel.setBorder(new LineBorder(Color.red));
+                titleNamePanel.add(titleName);
                 add(titleNamePanel);
             }
         }
@@ -60,31 +60,12 @@ public abstract class AFLessonPanel extends JPanel {
 
     protected void getOriginalText(String text) {
         if (originalText == null) {
-            originalText = new JTextPane();
+            originalText = new AFTextPane();
             originalText.setText(text);
-            originalText.setFont(Fonts.COURIERNEW_PLAIN_32);
-            originalText.setEditable(false);    //disallows editing
-            originalText.setOpaque(false);  //removes the background
-            originalText.setHighlighter(null);  //disables text selection
-            //The caret is overridden by the paint method so you don't have to draw anything
-            originalText.setCaret(new DefaultCaret(){
-                @Override
-                public void paint(Graphics g) {
 
-                }
-            });
-
-            SimpleAttributeSet center = new SimpleAttributeSet();
-            StyleConstants.setAlignment(center, StyleConstants.ALIGN_CENTER);
-
-            // Получаем StyledDocument и применяем стиль для всего текста
-            StyledDocument doc = originalText.getStyledDocument();
-            doc.setParagraphAttributes(0, doc.getLength(), center, false);
-
-            //add(originalText);
             if (originalTextPanel == null) {
                 originalTextPanel = new JPanel(new GridLayout());
-                //originalTextPanel.setBorder(new LineBorder(Color.red));
+                originalTextPanel.setBorder(new LineBorder(Color.red));
                 originalTextPanel.add(originalText);
                 add(originalTextPanel);
             }
@@ -93,12 +74,11 @@ public abstract class AFLessonPanel extends JPanel {
 
     protected void getTranslationTextArea(String text) {
         if(translatedText == null) {
-            translatedText = new JTextPane();
-            translatedText.setFont(Fonts.COURIERNEW_PLAIN_32);
+            translatedText = new AFTextPane();
 
             if(translatedTextPanel == null) {
                 translatedTextPanel = new JPanel(new GridLayout());
-                //translatedTextPanel.setBorder(new LineBorder(Color.red));
+                translatedTextPanel.setBorder(new LineBorder(Color.red));
                 translatedTextPanel.add(translatedText);
                 add(translatedTextPanel);
             }
@@ -114,14 +94,14 @@ public abstract class AFLessonPanel extends JPanel {
             //create a panel for user-entered words, if not already created
             if (enteredWordsPanel == null) {
                 enteredWordsPanel = new JPanel();
-                //enteredWordsPanel.setBorder(new LineBorder(Color.red));
+                enteredWordsPanel.setBorder(new LineBorder(Color.red));
                 add(enteredWordsPanel);
             }
 
             //create a panel for all the words that the user can choose to compose a sentence
             if (choiceWordsPanel == null) {
                 choiceWordsPanel = new JPanel();
-                //choiceWordsPanel.setBorder(new LineBorder(Color.red));
+                choiceWordsPanel.setBorder(new LineBorder(Color.red));
                 add(choiceWordsPanel);
             }
 
@@ -171,21 +151,23 @@ public abstract class AFLessonPanel extends JPanel {
     protected AFResultMessagePrinter getResultText() {
         if(resultText == null) {
             resultText = new AFResultMessagePrinter(this);
-            //resultText.getPanel().setBorder(new LineBorder(Color.red));
+            resultText.getPanel().setBorder(new LineBorder(Color.red));
         }
 
         return (resultText);
     }
 
     //creating text, with a TextField instead of a missing word
-    protected void getTextWithEmptyField(ArrayList<String> parts) {
+    protected void getTextWithEmptyField(CompleteTranslation lesson) {
+        String[] parts = lesson.getWords().toArray(new String[0]);
         translatedTextPanel = new JPanel();
         translatedTextPanel.setBorder(new LineBorder(Color.red));
 
         for (String part : parts) {
-            if (part.contains("*")) {
+            System.out.println(part + ".equals(" + lesson.getHiddenWord() + ") = " +part.equalsIgnoreCase(lesson.getHiddenWord()));
+            if (part.equalsIgnoreCase(lesson.getHiddenWord())) {
                 hiddenTextField = new JTextField(part.length());
-                hiddenTextField.setFont(Fonts.COURIERNEW_PLAIN_32);
+                hiddenTextField.setFont(Fonts.COURIERNEW_PLAIN_24);
                 translatedTextPanel.add(hiddenTextField);
             } else {
                 JLabel label = new JLabel();
@@ -193,7 +175,7 @@ public abstract class AFLessonPanel extends JPanel {
                 if(part.chars().anyMatch(Character::isLetter)) {
                     label.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 10));
                 }
-                label.setFont(Fonts.COURIERNEW_PLAIN_32);
+                label.setFont(Fonts.COURIERNEW_PLAIN_24);
                 translatedTextPanel.add(label);
             }
         }

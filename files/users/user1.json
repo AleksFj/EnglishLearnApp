@@ -3,102 +3,19 @@
   "modules": [
     {
       "title": "Articles a/an, the.",
-      "current": 1,
+      "current": 0,
       "taskList": [
         {
           "type": "Rules",
           "text": "\u003chtml\u003e\u003cbody style\u003d\u0027margin:10px 10px 10px 10px;font-family:Arial\u0027\u003e\u003ch1\u003eПравила использования артиклей в английском языке\u003c/h1\u003e\n    \n    \u003cp\u003eВ английском языке существуют \u003cstrong\u003eопределённый\u003c/strong\u003e и \u003cstrong\u003eнеопределённый\u003c/strong\u003e артикли: \u003cem\u003ethe\u003c/em\u003e, \u003cem\u003ea\u003c/em\u003e и \u003cem\u003ean\u003c/em\u003e.\u003c/p\u003e\n    \n    \u003ch2\u003eНеопределённый артикль\u003c/h2\u003e\n    \n    \u003cp\u003e\u003cstrong\u003eНеопределённый артикль \"a\" и \"an\"\u003c/strong\u003e используется перед существительными единственного числа, когда это существительное впервые упоминается и не имеет специфического определения.\u003c/p\u003e\n    \n    \u003cp\u003eНапример:\u003c/p\u003e\n    \n    \u003cul\u003e\n        \u003cli\u003e\u003cem\u003e\u003cstrong\u003eA\u003c/strong\u003e dog\u003c/em\u003e (собака)\u003c/li\u003e\n        \u003cli\u003e\u003cem\u003e\u003cstrong\u003eAn\u003c/strong\u003e apple\u003c/em\u003e (яблоко)\u003c/li\u003e\n    \u003c/ul\u003e\n    \n    \u003ch2\u003eОпределённый артикль\u003c/h2\u003e\n    \n    \u003cp\u003e\u003cstrong\u003eОпределённый артикль \"the\"\u003c/strong\u003e используется перед существительными, когда они уже упоминались или если они явно определены.\u003c/p\u003e\n    \n    \u003cp\u003eНапример:\u003c/p\u003e\n    \n    \u003cul\u003e\n        \u003cli\u003e\u003cem\u003e\u003cstrong\u003eThe\u003c/strong\u003e dog\u003c/em\u003e is barking. (Собака лает.)\u003c/li\u003e\n        \u003cli\u003e\u003cem\u003e\u003cstrong\u003eThe\u003c/strong\u003e apple\u003c/em\u003e is red. (Яблоко красное.)\u003c/li\u003e\n    \u003c/ul\u003e\n    \n    \u003ch2\u003eВыбор между \"a\" и \"an\"\u003c/h2\u003e\n    \n    \u003cp\u003eОпределённый артикль выбирается в зависимости от звука, с которого начинается следующее слово:\u003c/p\u003e\n    \n    \u003cul\u003e\n        \u003cli\u003e\u003cem\u003e\u003cstrong\u003eA\u003c/strong\u003e cat\u003c/em\u003e (кошка)\u003c/li\u003e\n        \u003cli\u003e\u003cem\u003e\u003cstrong\u003eAn\u003c/strong\u003e elephant\u003c/em\u003e (слон)\u003c/li\u003e\n    \u003c/ul\u003e\n    \n    \u003cp\u003eИсключение:\u003c/p\u003e\n    \n    \u003cul\u003e\n        \u003cli\u003e\u003cem\u003e\u003cstrong\u003eA\u003c/strong\u003e university\u003c/em\u003e (университет) - слово начинается с гласного, но звучит как согласный.\u003c/li\u003e\n    \u003c/ul\u003e\u003c/body\u003e\n   \u003c/html\u003e",
-          "isDone": true
-        },
-        {
-          "correctWords": [
-            "ты",
-            "смотрел",
-            "фильм",
-            "в",
-            "кинотеатре"
-          ],
-          "otherWords": [
-            "пожалуйста",
-            "привет",
-            "приятно",
-            "возможно",
-            "что"
-          ],
-          "titleText": "Translate sentence",
-          "originalText": "Did you see a movie at the cinema?",
-          "type": "TranslateSentence",
           "isDone": false
         },
         {
-          "correctWords": [
-            "he",
-            "hasn\u0027t",
-            "read",
-            "the",
-            "book",
-            "yet"
-          ],
-          "otherWords": [
-            "excuse",
-            "thank you",
-            "how",
-            "please",
-            "sorry",
-            "a",
-            "an"
-          ],
-          "titleText": "Translate sentence",
-          "originalText": "Он еще не прочитал книгу.",
-          "type": "TranslateSentence",
-          "isDone": false
-        },
-        {
-          "hiddenWord": "статью",
-          "textWithMissingWord": [
-            "Она",
-            "нашла",
-            "интересную",
-            "******",
-            "в",
-            "журнале."
-          ],
+          "hiddenWord": "found",
           "titleText": "Complete translation",
-          "originalText": "She found an interesting article in a magazine.",
-          "translatedText": "Она нашла интересную статью в журнале.",
+          "originalText": "Она нашла интересную статью в журнале.",
+          "translatedText": "She found an interesting article in a magazine.",
           "type": "CompleteTranslation",
-          "isDone": false
-        },
-        {
-          "titleText": "Translate text",
-          "originalText": "Do you have the time?",
-          "translatedText": "У вас есть время?",
-          "type": "TranslateText",
-          "isDone": false
-        },
-        {
-          "hiddenWord": "They",
-          "textWithMissingWord": [
-            "****",
-            "don\u0027t",
-            "like",
-            "the",
-            "food",
-            "at",
-            "the",
-            "restaurant."
-          ],
-          "titleText": "Complete translation",
-          "originalText": "Им не нравится еда в ресторане.",
-          "translatedText": "They don\u0027t like the food at the restaurant.",
-          "type": "CompleteTranslation",
-          "isDone": false
-        },
-        {
-          "titleText": "Translate text",
-          "originalText": "She doesn\u0027t have a car.",
-          "translatedText": "У нее нет машины.",
-          "type": "TranslateText",
           "isDone": false
         },
         {
@@ -112,17 +29,48 @@
             "weekend"
           ],
           "otherWords": [
-            "please",
-            "sorry",
-            "yes",
+            "help",
+            "how",
             "excuse",
-            "maybe",
+            "good",
+            "thank you",
             "a",
             "an"
           ],
           "titleText": "Translate sentence",
           "originalText": "Мы поехали на пляж на прошлых выходных.",
           "type": "TranslateSentence",
+          "isDone": false
+        },
+        {
+          "correctWords": [
+            "he",
+            "hasn\u0027t",
+            "read",
+            "the",
+            "book",
+            "yet"
+          ],
+          "otherWords": [
+            "help",
+            "no",
+            "nice",
+            "bad",
+            "sorry",
+            "a",
+            "an"
+          ],
+          "titleText": "Translate sentence",
+          "originalText": "Он еще не прочитал книгу.",
+          "type": "TranslateSentence",
+          "isDone": false
+        },
+        {
+          "hiddenWord": "visited",
+          "titleText": "Complete translation",
+          "originalText": "Ты посетил музей в центре города?",
+          "translatedText": "Have you visited the museum downtown?",
+          "type": "CompleteTranslation",
           "isDone": false
         },
         {
@@ -133,49 +81,68 @@
           "isDone": false
         },
         {
-          "hiddenWord": "посетил",
-          "textWithMissingWord": [
-            "Ты",
-            "*******",
-            "музей",
-            "в",
-            "центре",
-            "города?"
+          "titleText": "Translate text",
+          "originalText": "She doesn\u0027t have a car.",
+          "translatedText": "У нее нет машины.",
+          "type": "TranslateText",
+          "isDone": false
+        },
+        {
+          "correctWords": [
+            "did",
+            "you",
+            "see",
+            "a",
+            "movie",
+            "at",
+            "the",
+            "cinema"
           ],
+          "otherWords": [
+            "maybe",
+            "love",
+            "yes",
+            "please",
+            "good",
+            "an"
+          ],
+          "titleText": "Translate sentence",
+          "originalText": "Ты смотрел фильм в кинотеатре?",
+          "type": "TranslateSentence",
+          "isDone": false
+        },
+        {
+          "hiddenWord": "ресторане",
           "titleText": "Complete translation",
-          "originalText": "Have you visited the museum downtown?",
-          "translatedText": "Ты посетил музей в центре города?",
+          "originalText": "They don\u0027t like the food at the restaurant.",
+          "translatedText": "Им не нравится еда в ресторане.",
           "type": "CompleteTranslation",
+          "isDone": false
+        },
+        {
+          "titleText": "Translate text",
+          "originalText": "Do you have the time?",
+          "translatedText": "У вас есть время?",
+          "type": "TranslateText",
           "isDone": false
         }
       ]
     },
     {
       "title": "Verb to be.",
-      "current": 1,
+      "current": 0,
       "taskList": [
         {
           "type": "Rules",
           "text": "\u003chtml\u003e\u003cbody style\u003d\u0027margin:10px 10px 10px 10px;font-family:Arial\u0027\u003e\u003ch1\u003eПравила использования глагола \"to be\" в английском языке\u003c/h1\u003e\n\u003cp\u003eГлагол \"to be\" в английском языке является одним из наиболее употребительных и важных глаголов. Он используется для обозначения состояния, идентификации или описания субъекта.\u003c/p\u003e\n\u003ch2\u003eФормы глагола \"to be\"\u003c/h2\u003e\n\u003cp\u003eФормы глагола \"to be\" в Present Simple:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eI am (я есть)\u003c/li\u003e\n\u003cli\u003eYou are (ты есть)\u003c/li\u003e\n\u003cli\u003eHe/She/It is (он/она/оно есть)\u003c/li\u003e\n\u003cli\u003eWe are (мы есть)\u003c/li\u003e\n\u003cli\u003eThey are (они есть)\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eФормы глагола \"to be\" в Past Simple:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eI was (я был/была)\u003c/li\u003e\n\u003cli\u003eYou were (ты был/была)\u003c/li\u003e\n\u003cli\u003eHe/She/It was (он/она/оно был/была)\u003c/li\u003e\n\u003cli\u003eWe were (мы были)\u003c/li\u003e\n\u003cli\u003eThey were (они были)\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eФормы глагола \"to be\" в Future Simple:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eI will be (я буду)\u003c/li\u003e\n\u003cli\u003eYou will be (ты будешь)\u003c/li\u003e\n\u003cli\u003eHe/She/It will be (он/она/оно будет)\u003c/li\u003e\n\u003cli\u003eWe will be (мы будем)\u003c/li\u003e\n\u003cli\u003eThey will be (они будут)\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eГлагол \"to be\" также используется в разных временах, вопросительных и отрицательных предложениях и в различных ситуациях, таких как выражение чувств, мнения, идентификации и т.д.\u003c/p\u003e\n\u003c/body\u003e\n   \u003c/html\u003e",
-          "isDone": true
+          "isDone": false
         },
         {
-          "correctWords": [
-            "we",
-            "are",
-            "not",
-            "hungry"
-          ],
-          "otherWords": [
-            "nice",
-            "what",
-            "sorry",
-            "goodbye",
-            "excuse"
-          ],
-          "titleText": "Translate sentence",
-          "originalText": "Мы не голодны.",
-          "type": "TranslateSentence",
+          "hiddenWord": "язык",
+          "titleText": "Complete translation",
+          "originalText": "It is not easy to learn a new language.",
+          "translatedText": "Это не легко изучать новый язык.",
+          "type": "CompleteTranslation",
           "isDone": false
         },
         {
@@ -193,65 +160,10 @@
           "isDone": false
         },
         {
-          "hiddenWord": "they",
-          "textWithMissingWord": [
-            "Are",
-            "****",
-            "siblings?"
-          ],
-          "titleText": "Complete translation",
-          "originalText": "Они братья и сестры?",
-          "translatedText": "Are they siblings?",
-          "type": "CompleteTranslation",
-          "isDone": false
-        },
-        {
-          "hiddenWord": "not",
-          "textWithMissingWord": [
-            "It",
-            "is",
-            "***",
-            "easy",
-            "to",
-            "learn",
-            "a",
-            "new",
-            "language."
-          ],
-          "titleText": "Complete translation",
-          "originalText": "Это не легко изучать новый язык.",
-          "translatedText": "It is not easy to learn a new language.",
-          "type": "CompleteTranslation",
-          "isDone": false
-        },
-        {
-          "correctWords": [
-            "он",
-            "дома"
-          ],
-          "otherWords": [
-            "что",
-            "плохо",
-            "извините",
-            "помощь",
-            "хорошо"
-          ],
-          "titleText": "Translate sentence",
-          "originalText": "Is he at home?",
-          "type": "TranslateSentence",
-          "isDone": false
-        },
-        {
-          "hiddenWord": "Сегодня",
-          "textWithMissingWord": [
-            "*******",
-            "погода",
-            "хорошая."
-          ],
-          "titleText": "Complete translation",
-          "originalText": "The weather is nice today.",
-          "translatedText": "Сегодня погода хорошая.",
-          "type": "CompleteTranslation",
+          "titleText": "Translate text",
+          "originalText": "Are you ready for the exam?",
+          "translatedText": "Ты готов к экзамену?",
+          "type": "TranslateText",
           "isDone": false
         },
         {
@@ -262,11 +174,11 @@
             "friends"
           ],
           "otherWords": [
-            "help",
+            "sorry",
+            "no",
             "please",
-            "nice",
-            "goodbye",
-            "sorry"
+            "love",
+            "bad"
           ],
           "titleText": "Translate sentence",
           "originalText": "Они мои друзья.",
@@ -274,44 +186,81 @@
           "isDone": false
         },
         {
-          "titleText": "Translate text",
-          "originalText": "Are you ready for the exam?",
-          "translatedText": "Ты готов к экзамену?",
-          "type": "TranslateText",
+          "correctWords": [
+            "он",
+            "дома"
+          ],
+          "otherWords": [
+            "приятно",
+            "извините",
+            "возможно",
+            "плохо",
+            "пожалуйста"
+          ],
+          "titleText": "Translate sentence",
+          "originalText": "Is he at home?",
+          "type": "TranslateSentence",
+          "isDone": false
+        },
+        {
+          "correctWords": [
+            "мы",
+            "не",
+            "голодны"
+          ],
+          "otherWords": [
+            "пожалуйста",
+            "возможно",
+            "нет",
+            "помощь",
+            "извините"
+          ],
+          "titleText": "Translate sentence",
+          "originalText": "We are not hungry.",
+          "type": "TranslateSentence",
+          "isDone": false
+        },
+        {
+          "hiddenWord": "Сегодня",
+          "titleText": "Complete translation",
+          "originalText": "The weather is nice today.",
+          "translatedText": "Сегодня погода хорошая.",
+          "type": "CompleteTranslation",
+          "isDone": false
+        },
+        {
+          "hiddenWord": "сестры",
+          "titleText": "Complete translation",
+          "originalText": "Are they siblings?",
+          "translatedText": "Они братья и сестры?",
+          "type": "CompleteTranslation",
           "isDone": false
         }
       ]
     },
     {
       "title": "There is/are",
-      "current": 1,
+      "current": 0,
       "taskList": [
         {
           "type": "Rules",
           "text": "\u003chtml\u003e\u003cbody style\u003d\u0027margin:10px 10px 10px 10px;font-family:Arial\u0027\u003e\u003ch1\u003eПравила использования конструкций \"There is/are\" в английском языке\u003c/h1\u003e\n\u003cp\u003eКонструкции \"There is/are\" в английском языке используются для обозначения наличия или существования чего-либо в определенном месте или времени.\u003c/p\u003e\n\u003ch2\u003eФормы конструкций \"There is/are\"\u003c/h2\u003e\n\u003cp\u003eФормы конструкции \"There is\" (сингулярное число):\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eThere is a book on the table. (На столе есть книга.)\u003c/li\u003e\n\u003cli\u003eThere is a cat in the garden. (В саду есть кошка.)\u003c/li\u003e\n\u003cli\u003eThere is an apple in the fridge. (В холодильнике есть яблоко.)\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eФормы конструкции \"There are\" (множественное число):\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eThere are flowers in the vase. (В вазе есть цветы.)\u003c/li\u003e\n\u003cli\u003eThere are students in the classroom. (В классе есть студенты.)\u003c/li\u003e\n\u003cli\u003eThere are cars on the street. (На улице есть машины.)\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eКонструкции \"There is/are\" могут также использоваться в вопросительных и отрицательных предложениях и представляют собой важный элемент повседневного английского языка.\u003c/p\u003e\n\u003c/body\u003e\n   \u003c/html\u003e",
-          "isDone": true
+          "isDone": false
         },
         {
-          "correctWords": [
-            "are",
-            "there",
-            "any",
-            "good",
-            "restaurants",
-            "in",
-            "this",
-            "area"
-          ],
-          "otherWords": [
-            "goodbye",
-            "sorry",
-            "please",
-            "excuse",
-            "bad"
-          ],
-          "titleText": "Translate sentence",
-          "originalText": "Есть ли в этом районе хорошие рестораны?",
-          "type": "TranslateSentence",
+          "hiddenWord": "в",
+          "titleText": "Complete translation",
+          "originalText": "Are there any empty seats on the bus?",
+          "translatedText": "Есть ли свободные места в автобусе?",
+          "type": "CompleteTranslation",
+          "isDone": false
+        },
+        {
+          "hiddenWord": "кинотеатре",
+          "titleText": "Complete translation",
+          "originalText": "There is a new movie playing at the cinema tonight.",
+          "translatedText": "Сегодня в кинотеатре идет новый фильм.",
+          "type": "CompleteTranslation",
           "isDone": false
         },
         {
@@ -328,11 +277,11 @@
             "tomorrow"
           ],
           "otherWords": [
-            "yes",
-            "nice",
-            "love",
+            "sorry",
             "how",
-            "no"
+            "hello",
+            "no",
+            "what"
           ],
           "titleText": "Translate sentence",
           "originalText": "Времени недостаточно, чтобы закончить проект к завтрашнему дню.",
@@ -340,75 +289,26 @@
           "isDone": false
         },
         {
-          "titleText": "Translate text",
-          "originalText": "Is there a supermarket in this neighborhood?",
-          "translatedText": "Есть ли в этом районе супермаркет?",
-          "type": "TranslateText",
-          "isDone": false
-        },
-        {
-          "hiddenWord": "идет",
-          "textWithMissingWord": [
-            "Сегодня",
-            "в",
-            "кинотеатре",
-            "****",
-            "новый",
-            "фильм."
+          "correctWords": [
+            "are",
+            "there",
+            "any",
+            "good",
+            "restaurants",
+            "in",
+            "this",
+            "area"
           ],
-          "titleText": "Complete translation",
-          "originalText": "There is a new movie playing at the cinema tonight.",
-          "translatedText": "Сегодня в кинотеатре идет новый фильм.",
-          "type": "CompleteTranslation",
-          "isDone": false
-        },
-        {
-          "titleText": "Translate text",
-          "originalText": "There aren\u0027t any shops open at this late hour.",
-          "translatedText": "В этот поздний час нет открытых магазинов.",
-          "type": "TranslateText",
-          "isDone": false
-        },
-        {
-          "hiddenWord": "yet",
-          "textWithMissingWord": [
-            "There",
-            "aren\u0027t",
-            "many",
-            "people",
-            "at",
-            "the",
-            "party",
-            "***",
-            "."
+          "otherWords": [
+            "please",
+            "thank you",
+            "hello",
+            "excuse",
+            "bad"
           ],
-          "titleText": "Complete translation",
-          "originalText": "На вечеринке пока мало людей.",
-          "translatedText": "There aren\u0027t many people at the party yet.",
-          "type": "CompleteTranslation",
-          "isDone": false
-        },
-        {
-          "titleText": "Translate text",
-          "originalText": "There is a park near my house.",
-          "translatedText": "Рядом с моим домом есть парк.",
-          "type": "TranslateText",
-          "isDone": false
-        },
-        {
-          "hiddenWord": "Есть",
-          "textWithMissingWord": [
-            "****",
-            "ли",
-            "свободные",
-            "места",
-            "в",
-            "автобусе?"
-          ],
-          "titleText": "Complete translation",
-          "originalText": "Are there any empty seats on the bus?",
-          "translatedText": "Есть ли свободные места в автобусе?",
-          "type": "CompleteTranslation",
+          "titleText": "Translate sentence",
+          "originalText": "Есть ли в этом районе хорошие рестораны?",
+          "type": "TranslateSentence",
           "isDone": false
         },
         {
@@ -420,32 +320,171 @@
             "книг"
           ],
           "otherWords": [
-            "пока",
-            "как",
-            "спасибо",
             "что",
-            "приятно"
+            "нет",
+            "возможно",
+            "пока",
+            "хорошо"
           ],
           "titleText": "Translate sentence",
           "originalText": "There are many interesting books in the library.",
           "type": "TranslateSentence",
+          "isDone": false
+        },
+        {
+          "titleText": "Translate text",
+          "originalText": "Is there a supermarket in this neighborhood?",
+          "translatedText": "Есть ли в этом районе супермаркет?",
+          "type": "TranslateText",
+          "isDone": false
+        },
+        {
+          "titleText": "Translate text",
+          "originalText": "There is a park near my house.",
+          "translatedText": "Рядом с моим домом есть парк.",
+          "type": "TranslateText",
+          "isDone": false
+        },
+        {
+          "hiddenWord": "На",
+          "titleText": "Complete translation",
+          "originalText": "There aren\u0027t many people at the party yet.",
+          "translatedText": "На вечеринке пока мало людей.",
+          "type": "CompleteTranslation",
+          "isDone": false
+        },
+        {
+          "titleText": "Translate text",
+          "originalText": "There aren\u0027t any shops open at this late hour.",
+          "translatedText": "В этот поздний час нет открытых магазинов.",
+          "type": "TranslateText",
           "isDone": false
         }
       ]
     },
     {
       "title": "Personal pronouns I, We, You, They, He, She, It",
-      "current": 1,
+      "current": 0,
       "taskList": [
         {
           "type": "Rules",
           "text": "\u003chtml\u003e\u003cbody style\u003d\u0027margin:10px 10px 10px 10px;font-family:Arial\u0027\u003e\u003ch1\u003eПравила использования личных местоимений в английском языке\u003c/h1\u003e\n\u003cp\u003eЛичные местоимения в английском языке используются для обозначения людей или вещей, о которых идет речь в предложении. Они заменяют субъекты или объекты предложения и могут изменяться в зависимости от лица, числа, рода и падежа.\u003c/p\u003e\n\u003ch2\u003eСубъектные и объектные формы\u003c/h2\u003e\n\u003cp\u003eСубъектные (именительные) формы:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eI (я)\u003c/li\u003e\n\u003cli\u003eWe (мы)\u003c/li\u003e\n\u003cli\u003eYou (ты, вы)\u003c/li\u003e\n\u003cli\u003eHe (он)\u003c/li\u003e\n\u003cli\u003eShe (она)\u003c/li\u003e\n\u003cli\u003eIt (оно)\u003c/li\u003e\n\u003cli\u003eThey (они)\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eОбъектные (винительные) формы:\u003c/p\u003e\n\u003cul\u003e\n\u003cli\u003eMe (меня, мне)\u003c/li\u003e\n\u003cli\u003eUs (нас, нам)\u003c/li\u003e\n\u003cli\u003eYou (тебя, вас)\u003c/li\u003e\n\u003cli\u003eHim (его, ему)\u003c/li\u003e\n\u003cli\u003eHer (ее, ей)\u003c/li\u003e\n\u003cli\u003eIt (его, ему)\u003c/li\u003e\n\u003cli\u003eThem (их, им)\u003c/li\u003e\n\u003c/ul\u003e\n\u003cp\u003eЛичные местоимения используются в различных контекстах, в том числе в ситуациях, когда необходимо обозначить субъект действия, в вопросительных и отрицательных предложениях, а также в выражениях принадлежности и приветствия.\u003c/p\u003e\n\u003c/body\u003e\n   \u003c/html\u003e",
-          "isDone": true
+          "isDone": false
+        },
+        {
+          "correctWords": [
+            "мне",
+            "нужно",
+            "закончить",
+            "это",
+            "сегодня"
+          ],
+          "otherWords": [
+            "помощь",
+            "привет",
+            "извините",
+            "пожалуйста",
+            "спасибо"
+          ],
+          "titleText": "Translate sentence",
+          "originalText": "Do I have to finish this today?",
+          "type": "TranslateSentence",
+          "isDone": false
+        },
+        {
+          "hiddenWord": "are",
+          "titleText": "Complete translation",
+          "originalText": "Мы собираемся на пляж на следующих выходных.",
+          "translatedText": "We are going to the beach next weekend.",
+          "type": "CompleteTranslation",
+          "isDone": false
+        },
+        {
+          "titleText": "Translate text",
+          "originalText": "She isn\u0027t feeling well today.",
+          "translatedText": "Она сегодня плохо себя чувствует.",
+          "type": "TranslateText",
+          "isDone": false
+        },
+        {
+          "correctWords": [
+            "is",
+            "it",
+            "going",
+            "to",
+            "snow",
+            "tomorrow"
+          ],
+          "otherWords": [
+            "love",
+            "excuse",
+            "help",
+            "good",
+            "yes"
+          ],
+          "titleText": "Translate sentence",
+          "originalText": "Завтра будет снег?",
+          "type": "TranslateSentence",
+          "isDone": false
+        },
+        {
+          "hiddenWord": "is",
+          "titleText": "Complete translation",
+          "originalText": "Он - мой брат.",
+          "translatedText": "He is my brother.",
+          "type": "CompleteTranslation",
+          "isDone": false
+        },
+        {
+          "hiddenWord": "teacher",
+          "titleText": "Complete translation",
+          "originalText": "Она работает учителем.",
+          "translatedText": "She works as a teacher.",
+          "type": "CompleteTranslation",
+          "isDone": false
+        },
+        {
+          "hiddenWord": "big",
+          "titleText": "Complete translation",
+          "originalText": "Они живут в большом доме.",
+          "translatedText": "They live in a big house.",
+          "type": "CompleteTranslation",
+          "isDone": false
+        },
+        {
+          "hiddenWord": "друг",
+          "titleText": "Complete translation",
+          "originalText": "You are my best friend.",
+          "translatedText": "Ты мой лучший друг.",
+          "type": "CompleteTranslation",
+          "isDone": false
         },
         {
           "titleText": "Translate text",
           "originalText": "I don\u0027t know the answer.",
           "translatedText": "Я не знаю ответа.",
+          "type": "TranslateText",
+          "isDone": false
+        },
+        {
+          "titleText": "Translate text",
+          "originalText": "It isn\u0027t working properly.",
+          "translatedText": "Оно не работает правильно.",
+          "type": "TranslateText",
+          "isDone": false
+        },
+        {
+          "hiddenWord": "время",
+          "titleText": "Complete translation",
+          "originalText": "I like to read books in my free time.",
+          "translatedText": "Я люблю читать книги в свободное время.",
+          "type": "CompleteTranslation",
+          "isDone": false
+        },
+        {
+          "titleText": "Translate text",
+          "originalText": "You don\u0027t have to worry about it.",
+          "translatedText": "Ты не должен беспокоиться об этом.",
           "type": "TranslateText",
           "isDone": false
         },
@@ -457,18 +496,66 @@
           "isDone": false
         },
         {
-          "hiddenWord": "дождь",
-          "textWithMissingWord": [
-            "На",
-            "улице",
-            "идет",
-            "*****",
-            "."
+          "correctWords": [
+            "do",
+            "they",
+            "have",
+            "any",
+            "pets"
           ],
+          "otherWords": [
+            "goodbye",
+            "bad",
+            "hello",
+            "what",
+            "please"
+          ],
+          "titleText": "Translate sentence",
+          "originalText": "У них есть домашние животные?",
+          "type": "TranslateSentence",
+          "isDone": false
+        },
+        {
+          "hiddenWord": "raining",
           "titleText": "Complete translation",
-          "originalText": "It is raining outside.",
-          "translatedText": "На улице идет дождь.",
+          "originalText": "На улице идет дождь.",
+          "translatedText": "It is raining outside.",
           "type": "CompleteTranslation",
+          "isDone": false
+        },
+        {
+          "correctWords": [
+            "are",
+            "you",
+            "coming",
+            "to",
+            "the",
+            "party"
+          ],
+          "otherWords": [
+            "goodbye",
+            "nice",
+            "sorry",
+            "please",
+            "yes"
+          ],
+          "titleText": "Translate sentence",
+          "originalText": "Ты идешь на вечеринку?",
+          "type": "TranslateSentence",
+          "isDone": false
+        },
+        {
+          "titleText": "Translate text",
+          "originalText": "He doesn\u0027t like spicy food.",
+          "translatedText": "Он не любит острую пищу.",
+          "type": "TranslateText",
+          "isDone": false
+        },
+        {
+          "titleText": "Translate text",
+          "originalText": "They aren\u0027t coming to the meeting today.",
+          "translatedText": "Они сегодня не идут на собрание.",
+          "type": "TranslateText",
           "isDone": false
         },
         {
@@ -481,11 +568,11 @@
             "party"
           ],
           "otherWords": [
-            "excuse",
+            "what",
+            "yes",
             "maybe",
-            "please",
             "good",
-            "thank you"
+            "please"
           ],
           "titleText": "Translate sentence",
           "originalText": "Мы приглашены на вечеринку?",
@@ -493,246 +580,87 @@
           "isDone": false
         },
         {
-          "hiddenWord": "в",
-          "textWithMissingWord": [
-            "Они",
-            "живут",
-            "*",
-            "большом",
-            "доме."
-          ],
-          "titleText": "Complete translation",
-          "originalText": "They live in a big house.",
-          "translatedText": "Они живут в большом доме.",
-          "type": "CompleteTranslation",
-          "isDone": false
-        },
-        {
-          "titleText": "Translate text",
-          "originalText": "He doesn\u0027t like spicy food.",
-          "translatedText": "Он не любит острую пищу.",
-          "type": "TranslateText",
-          "isDone": false
-        },
-        {
-          "hiddenWord": "мой",
-          "textWithMissingWord": [
-            "Ты",
-            "***",
-            "лучший",
-            "друг."
-          ],
-          "titleText": "Complete translation",
-          "originalText": "You are my best friend.",
-          "translatedText": "Ты мой лучший друг.",
-          "type": "CompleteTranslation",
-          "isDone": false
-        },
-        {
           "correctWords": [
-            "она",
-            "сейчас",
-            "занята"
-          ],
-          "otherWords": [
-            "возможно",
-            "как",
-            "что",
-            "да",
-            "привет"
-          ],
-          "titleText": "Translate sentence",
-          "originalText": "Is she busy right now?",
-          "type": "TranslateSentence",
-          "isDone": false
-        },
-        {
-          "correctWords": [
-            "ты",
-            "идешь",
-            "на",
-            "вечеринку"
-          ],
-          "otherWords": [
-            "приятно",
-            "спасибо",
-            "извините",
-            "возможно",
-            "помощь"
-          ],
-          "titleText": "Translate sentence",
-          "originalText": "Are you coming to the party?",
-          "type": "TranslateSentence",
-          "isDone": false
-        },
-        {
-          "titleText": "Translate text",
-          "originalText": "She isn\u0027t feeling well today.",
-          "translatedText": "Она сегодня плохо себя чувствует.",
-          "type": "TranslateText",
-          "isDone": false
-        },
-        {
-          "correctWords": [
-            "завтра",
-            "будет",
-            "снег"
-          ],
-          "otherWords": [
-            "да",
-            "нет",
-            "привет",
-            "пока",
-            "как"
-          ],
-          "titleText": "Translate sentence",
-          "originalText": "Is it going to snow tomorrow?",
-          "type": "TranslateSentence",
-          "isDone": false
-        },
-        {
-          "correctWords": [
-            "мне",
-            "нужно",
-            "закончить",
-            "это",
-            "сегодня"
-          ],
-          "otherWords": [
-            "извините",
-            "привет",
-            "помощь",
-            "что",
-            "плохо"
-          ],
-          "titleText": "Translate sentence",
-          "originalText": "Do I have to finish this today?",
-          "type": "TranslateSentence",
-          "isDone": false
-        },
-        {
-          "hiddenWord": "He",
-          "textWithMissingWord": [
-            "**",
             "is",
-            "my",
-            "brother."
-          ],
-          "titleText": "Complete translation",
-          "originalText": "Он - мой брат.",
-          "translatedText": "He is my brother.",
-          "type": "CompleteTranslation",
-          "isDone": false
-        },
-        {
-          "hiddenWord": "works",
-          "textWithMissingWord": [
-            "She",
-            "*****",
-            "as",
-            "a",
-            "teacher."
-          ],
-          "titleText": "Complete translation",
-          "originalText": "Она работает учителем.",
-          "translatedText": "She works as a teacher.",
-          "type": "CompleteTranslation",
-          "isDone": false
-        },
-        {
-          "correctWords": [
-            "он",
-            "идет",
-            "на",
-            "вечеринку"
+            "she",
+            "busy",
+            "right",
+            "now"
           ],
           "otherWords": [
-            "пожалуйста",
-            "что",
-            "извините",
-            "хорошо",
-            "возможно"
-          ],
-          "titleText": "Translate sentence",
-          "originalText": "Is he coming to the party?",
-          "type": "TranslateSentence",
-          "isDone": false
-        },
-        {
-          "titleText": "Translate text",
-          "originalText": "It isn\u0027t working properly.",
-          "translatedText": "Оно не работает правильно.",
-          "type": "TranslateText",
-          "isDone": false
-        },
-        {
-          "hiddenWord": "We",
-          "textWithMissingWord": [
-            "**",
-            "are",
-            "going",
-            "to",
-            "the",
-            "beach",
-            "next",
-            "weekend."
-          ],
-          "titleText": "Complete translation",
-          "originalText": "Мы собираемся на пляж на следующих выходных.",
-          "translatedText": "We are going to the beach next weekend.",
-          "type": "CompleteTranslation",
-          "isDone": false
-        },
-        {
-          "titleText": "Translate text",
-          "originalText": "They aren\u0027t coming to the meeting today.",
-          "translatedText": "Они сегодня не идут на собрание.",
-          "type": "TranslateText",
-          "isDone": false
-        },
-        {
-          "hiddenWord": "books",
-          "textWithMissingWord": [
-            "I",
-            "like",
-            "to",
-            "read",
-            "*****",
-            "in",
-            "my",
-            "free",
-            "time."
-          ],
-          "titleText": "Complete translation",
-          "originalText": "Я люблю читать книги в свободное время.",
-          "translatedText": "I like to read books in my free time.",
-          "type": "CompleteTranslation",
-          "isDone": false
-        },
-        {
-          "correctWords": [
-            "do",
-            "they",
-            "have",
-            "any",
-            "pets"
-          ],
-          "otherWords": [
-            "how",
+            "hello",
+            "excuse",
             "please",
             "good",
-            "nice",
-            "what"
+            "help"
           ],
           "titleText": "Translate sentence",
-          "originalText": "У них есть домашние животные?",
+          "originalText": "Она сейчас занята?",
           "type": "TranslateSentence",
           "isDone": false
         },
         {
-          "titleText": "Translate text",
-          "originalText": "You don\u0027t have to worry about it.",
-          "translatedText": "Ты не должен беспокоиться об этом.",
+          "correctWords": [
+            "is",
+            "he",
+            "coming",
+            "to",
+            "the",
+            "party"
+          ],
+          "otherWords": [
+            "no",
+            "please",
+            "thank you",
+            "excuse",
+            "maybe"
+          ],
+          "titleText": "Translate sentence",
+          "originalText": "Он идет на вечеринку?",
+          "type": "TranslateSentence",
+          "isDone": false
+        }
+      ]
+    },
+    {
+      "title": "Example",
+      "current": 0,
+      "taskList": [
+        {
+          "type": "Rules",
+          "text": "\u003chtml\u003e\u003cbody\u003eYou can create your own lessons by creating a json file in the lessons folder.\u003cp style\u003d\u0027color:blue\u0027\u003eThis text can use html tags\u003c/p\u003e\u003c/body\u003e\u003c/html\u003e",
+          "isDone": false
+        },
+        {
+          "correctWords": [
+            "Выбери",
+            "правильные",
+            "слова",
+            "в",
+            "правильной",
+            "последовательности"
+          ],
+          "otherWords": [
+            "Другие",
+            "слова"
+          ],
+          "titleText": "Example of \u0027Translation sentence\u0027",
+          "originalText": "Choose the correct words in the correct order",
+          "type": "TranslateSentence",
+          "isDone": false
+        },
+        {
+          "hiddenWord": "поле",
+          "titleText": "Example of \u0027Complete translation\u0027",
+          "originalText": "Write the correct word in the empty box.",
+          "translatedText": "Напиши правильное слово в пустое поле.",
+          "type": "CompleteTranslation",
+          "isDone": false
+        },
+        {
+          "titleText": "Example of \u0027Translate text\u0027",
+          "originalText": "This is the text to be translated",
+          "translatedText": "Это текст который надо перевести",
           "type": "TranslateText",
           "isDone": false
         }
